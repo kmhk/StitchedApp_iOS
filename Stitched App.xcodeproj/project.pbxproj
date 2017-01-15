@@ -8,20 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		F3A6EF1F1E2B44C100A24473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF1E1E2B44C100A24473 /* AppDelegate.swift */; };
-		F3A6EF211E2B44C100A24473 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF201E2B44C100A24473 /* ViewController.swift */; };
 		F3A6EF241E2B44C100A24473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A6EF221E2B44C100A24473 /* Main.storyboard */; };
 		F3A6EF261E2B44C100A24473 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3A6EF251E2B44C100A24473 /* Assets.xcassets */; };
 		F3A6EF291E2B44C100A24473 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A6EF271E2B44C100A24473 /* LaunchScreen.storyboard */; };
+		F3A6EF3D1E2B6BCD00A24473 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF3A1E2B6BCD00A24473 /* LoginViewController.swift */; };
+		F3A6EF3E1E2B6BCD00A24473 /* NavLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF3B1E2B6BCD00A24473 /* NavLoginViewController.swift */; };
+		F3A6EF3F1E2B6BCD00A24473 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF3C1E2B6BCD00A24473 /* SignupViewController.swift */; };
+		F3A6EF431E2B6E6A00A24473 /* BorderLineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF421E2B6E6A00A24473 /* BorderLineButton.swift */; };
+		F3A6EF461E2B708A00A24473 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF451E2B708A00A24473 /* ProfileTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F3A6EF1B1E2B44C100A24473 /* Stitched App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stitched App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6EF1E1E2B44C100A24473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3A6EF201E2B44C100A24473 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3A6EF231E2B44C100A24473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3A6EF251E2B44C100A24473 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3A6EF281E2B44C100A24473 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F3A6EF2A1E2B44C100A24473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F3A6EF3A1E2B6BCD00A24473 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewControllers/LoginSignup/LoginViewController.swift; sourceTree = "<group>"; };
+		F3A6EF3B1E2B6BCD00A24473 /* NavLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavLoginViewController.swift; path = ViewControllers/LoginSignup/NavLoginViewController.swift; sourceTree = "<group>"; };
+		F3A6EF3C1E2B6BCD00A24473 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ViewControllers/LoginSignup/SignupViewController.swift; sourceTree = "<group>"; };
+		F3A6EF421E2B6E6A00A24473 /* BorderLineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BorderLineButton.swift; path = UICustomize/BorderLineButton.swift; sourceTree = "<group>"; };
+		F3A6EF451E2B708A00A24473 /* ProfileTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTextField.swift; path = UICustomize/ProfileTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,66 @@
 		F3A6EF1D1E2B44C100A24473 /* Stitched App */ = {
 			isa = PBXGroup;
 			children = (
+				F3A6EF401E2B6DF700A24473 /* UICustomize */,
+				F3A6EF301E2B4B5100A24473 /* ViewControllers */,
+				F3A6EF311E2B4B6500A24473 /* Storyboards */,
 				F3A6EF1E1E2B44C100A24473 /* AppDelegate.swift */,
-				F3A6EF201E2B44C100A24473 /* ViewController.swift */,
-				F3A6EF221E2B44C100A24473 /* Main.storyboard */,
 				F3A6EF251E2B44C100A24473 /* Assets.xcassets */,
 				F3A6EF271E2B44C100A24473 /* LaunchScreen.storyboard */,
 				F3A6EF2A1E2B44C100A24473 /* Info.plist */,
 			);
 			path = "Stitched App";
+			sourceTree = "<group>";
+		};
+		F3A6EF301E2B4B5100A24473 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6EF351E2B5AC000A24473 /* LoginSignup */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F3A6EF311E2B4B6500A24473 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6EF221E2B44C100A24473 /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		F3A6EF351E2B5AC000A24473 /* LoginSignup */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6EF3B1E2B6BCD00A24473 /* NavLoginViewController.swift */,
+				F3A6EF3A1E2B6BCD00A24473 /* LoginViewController.swift */,
+				F3A6EF3C1E2B6BCD00A24473 /* SignupViewController.swift */,
+			);
+			name = LoginSignup;
+			sourceTree = "<group>";
+		};
+		F3A6EF401E2B6DF700A24473 /* UICustomize */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6EF441E2B702900A24473 /* ProfileTextField */,
+				F3A6EF411E2B6E1100A24473 /* BorderLineButton */,
+			);
+			name = UICustomize;
+			sourceTree = "<group>";
+		};
+		F3A6EF411E2B6E1100A24473 /* BorderLineButton */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6EF421E2B6E6A00A24473 /* BorderLineButton.swift */,
+			);
+			name = BorderLineButton;
+			sourceTree = "<group>";
+		};
+		F3A6EF441E2B702900A24473 /* ProfileTextField */ = {
+			isa = PBXGroup;
+			children = (
+				F3A6EF451E2B708A00A24473 /* ProfileTextField.swift */,
+			);
+			name = ProfileTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,7 +156,7 @@
 				TargetAttributes = {
 					F3A6EF1A1E2B44C100A24473 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -136,8 +196,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3A6EF211E2B44C100A24473 /* ViewController.swift in Sources */,
+				F3A6EF3D1E2B6BCD00A24473 /* LoginViewController.swift in Sources */,
+				F3A6EF431E2B6E6A00A24473 /* BorderLineButton.swift in Sources */,
 				F3A6EF1F1E2B44C100A24473 /* AppDelegate.swift in Sources */,
+				F3A6EF3F1E2B6BCD00A24473 /* SignupViewController.swift in Sources */,
+				F3A6EF3E1E2B6BCD00A24473 /* NavLoginViewController.swift in Sources */,
+				F3A6EF461E2B708A00A24473 /* ProfileTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,10 +322,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bai Jin Zhin (FU9SD2G4V7)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Stitched App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Stitched-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1509eb80-8f56-4eec-8872-5c9fe51e6e8c";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev Provision";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -270,10 +339,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bai Jin Zhin (FU9SD2G4V7)";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Stitched App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Stitched-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1509eb80-8f56-4eec-8872-5c9fe51e6e8c";
+				PROVISIONING_PROFILE_SPECIFIER = "Dev Provision";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -297,6 +371,7 @@
 				F3A6EF2F1E2B44C100A24473 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
