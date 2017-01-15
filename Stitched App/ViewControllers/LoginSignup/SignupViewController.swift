@@ -19,7 +19,9 @@ class SignupViewController: UIViewController {
 	@IBOutlet weak var txtEmail: ProfileTextField!
 	@IBOutlet weak var txtPhoneNumber: ProfileTextField!
 	@IBOutlet weak var txtPassword: ProfileTextField!
-	@IBOutlet weak var txtConfirm: ProfileTextField!
+	
+	@IBOutlet weak var switchClient: UISwitch!
+	
 	
 	var imgProfile: UIImage?
 	
@@ -32,7 +34,6 @@ class SignupViewController: UIViewController {
 		txtEmail.delegate = self
 		txtPhoneNumber.delegate = self
 		txtPassword.delegate = self
-		txtConfirm.delegate = self
 		
 		btnProfilePhoto.layer.cornerRadius = btnProfilePhoto.frame.size.width / 2
 		btnProfilePhoto.clipsToBounds = true
@@ -87,7 +88,6 @@ class SignupViewController: UIViewController {
 		txtEmail.resignFirstResponder()
 		txtPhoneNumber.resignFirstResponder()
 		txtPassword.resignFirstResponder()
-		txtConfirm.resignFirstResponder()
 	}
 	
     /*
@@ -150,8 +150,6 @@ extension SignupViewController: UITextFieldDelegate {
 			txtPhoneNumber.becomeFirstResponder()
 		} else if textField == txtPhoneNumber {
 			txtPassword.becomeFirstResponder()
-		} else if textField == txtPassword {
-			txtConfirm.becomeFirstResponder()
 		}
 		
 		return true
