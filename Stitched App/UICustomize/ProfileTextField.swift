@@ -13,9 +13,6 @@ class ProfileTextField: UITextField, UITextFieldDelegate {
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 		
-		self.textAlignment = .center
-		self.textColor = UIColor.white
-		
 		let text = NSAttributedString(string: self.placeholder!,
 		                              attributes: [NSForegroundColorAttributeName: UIColor.gray,
 		                                           NSFontAttributeName: self.font!])

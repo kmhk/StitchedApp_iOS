@@ -91,57 +91,52 @@ class SignupViewController: UIViewController {
 		}
 		
 		MBProgressHUD.showAdded(to: self.view, animated: true)
-//		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		
-		Reference.firebaseRef.register(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
-			if error != nil {
-				let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-				alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-				self.present(alert, animated: true, completion: nil)
-				
-				MBProgressHUD.hide(for: self.view, animated: true)
-//				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				return
-			}
+		let errorHandler: ((Error)->()) = { error in
+			let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+			self.present(alert, animated: true, completion: nil)
 			
-			let imgData = UIImageJPEGRepresentation(self.imgProfile!, 0.5)
+			MBProgressHUD.hide(for: self.view, animated: true)
+			return
+		}
+		
+		let completeHandler = { [weak self] in
+			MBProgressHUD.hide(for: (self?.view)!, animated: true)
 			
-			let storageURL = Reference.firebaseRef.storageForAvatar(userID: (user?.uid)!)
-			let metaData = FIRStorageMetadata()
-			metaData.contentType = "image/jpg"
+			let alert = UIAlertController(title: "", message: "Successfully created user", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+				self?.navigationController!.popViewController(animated: true)
+			}))
+			self?.present(alert, animated: true, completion: nil)
 			
-			storageURL.put(imgData!, metadata: metaData, completion: { (data, error) in
-				if error != nil {
-					let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-					alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-					self.present(alert, animated: true, completion: nil)
-					
-					MBProgressHUD.hide(for: self.view, animated: true)
-//					UIApplication.shared.isNetworkActivityIndicatorVisible = false
-					return
-				}
-				
-				let avatarURL = data?.downloadURL()?.absoluteString
-				Reference.firebaseRef.addNewUser(id: (user?.uid)!,
-				                                 avatar: avatarURL!,
-				                                 fullName: self.txtFullName.text!,
-				                                 email: self.txtEmail.text!,
-				                                 phone: self.txtPhoneNumber.text!,
-				                                 role: (self.switchClient.isOn == true ? "client" : "vendor"))
-				
-				MBProgressHUD.hide(for: self.view, animated: true)
-//				UIApplication.shared.isNetworkActivityIndicatorVisible = false
-				
-				let alert = UIAlertController(title: "", message: "Successfully created user", preferredStyle: .alert)
-				alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
-					self.navigationController!.popViewController(animated: true)
-				}))
-				self.present(alert, animated: true, completion: nil)
-				
 //				DispatchQueue.main.async(execute: {
 //					self.navigationController!.popViewController(animated: true)
 //				})
+		}
+		
+		Reference.FBRef.register(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
+			if error != nil {
+				errorHandler(error!)
+			}
+			
+			let imgData = UIImageJPEGRepresentation(self.imgProfile!, 0.5)
+			Reference.FBRef.uploadAvatarFile(withID: (user?.uid)!, imgData: imgData!, completion: { (data, error) in
+				if error != nil { errorHandler(error!) }
+				
+				let avatarURL = data?.downloadURL()?.absoluteString
+				Reference.FBRef.updateUser(id: (user?.uid)!,
+				                           avatar: avatarURL!,
+				                           fullName: self.txtFullName.text!,
+				                           email: self.txtEmail.text!,
+				                           phone: self.txtPhoneNumber.text!,
+				                           role: (self.switchClient.isOn == true ? Role.client.rawValue : Role.vendor.rawValue),
+				                           completion: { (ref, error) in
+												if error != nil { errorHandler(error!) }
+												completeHandler()
+				})
 			})
+			
 		}
 	}
 

@@ -12,5 +12,6 @@ target 'Stitched App' do
   pod ‘Firebase/Auth’
   pod ‘Firebase/Messaging’
   pod 'MBProgressHUD'
+  pod ‘Nuke’
 
 end

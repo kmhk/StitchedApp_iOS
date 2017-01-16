@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MarkImage" translatesAutoresizingMaskIntoConstraints="NO" id="4SW-gk-Ync">
-                                <rect key="frame" x="47" y="85" width="280" height="121"/>
+                                <rect key="frame" x="47" y="85" width="280" height="120.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4SW-gk-Ync" secondAttribute="height" multiplier="7:3" constant="-1.3333333333333428" id="rHH-B9-LF0"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c2E-XV-esS" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
                                 <rect key="frame" x="47" y="290" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
@@ -44,7 +44,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rlc-9V-klb" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
                                 <rect key="frame" x="47" y="355" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
@@ -168,7 +168,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Full Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0M3-La-2gq" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
                                         <rect key="frame" x="47" y="270" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="namePhonePad" returnKeyType="next"/>
                                     </textField>
@@ -180,7 +180,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f38-Yj-7hU" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
                                         <rect key="frame" x="47" y="330" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                                     </textField>
@@ -192,7 +192,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zzq-qg-w3p" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
                                         <rect key="frame" x="47" y="390" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                     </textField>
@@ -204,7 +204,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Hr-zi-nyd" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
                                         <rect key="frame" x="47" y="450" width="280" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                     </textField>
@@ -340,7 +340,7 @@
         <scene sceneID="pUT-5K-xqw">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" id="shk-xL-4pt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="jof-PN-vvn"/>
+                    <tabBarItem key="tabBarItem" title="" id="jof-PN-vvn"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9S-r8-MXY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -371,8 +371,8 @@
         <image name="NavBack" width="9" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gjK-gg-baZ"/>
-        <segue reference="Rb9-Yg-GpT"/>
         <segue reference="DBz-Vh-FOS"/>
+        <segue reference="Rb9-Yg-GpT"/>
+        <segue reference="vO2-tH-DlB"/>
     </inferredMetricsTieBreakers>
 </document>

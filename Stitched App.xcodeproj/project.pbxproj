@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A8523D6325C80D69D01FF8EF /* Pods_Stitched_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0C3E887556B93BE7724E91 /* Pods_Stitched_App.framework */; };
+		F3039E6E1E2CA3ED006A6BD9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3039E6D1E2CA3ED006A6BD9 /* User.swift */; };
+		F3039E711E2CCF44006A6BD9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3039E701E2CCF44006A6BD9 /* ProfileViewController.swift */; };
 		F30BBC461E2C1B5E000A807F /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30BBC441E2C1B5E000A807F /* Home.storyboard */; };
 		F30BBC481E2C1B8B000A807F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BBC471E2C1B8B000A807F /* HomeViewController.swift */; };
 		F30BBC4B1E2C1C6D000A807F /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30BBC491E2C1C6D000A807F /* Post.storyboard */; };
@@ -17,6 +19,8 @@
 		F30BBC571E2C2321000A807F /* ClientTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BBC561E2C2321000A807F /* ClientTabViewController.swift */; };
 		F30BBC591E2C2344000A807F /* VendorTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30BBC581E2C2344000A807F /* VendorTabViewController.swift */; };
 		F30BBC5B1E2C2827000A807F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F30BBC5A1E2C2827000A807F /* GoogleService-Info.plist */; };
+		F3554CA11E2D843C0077A780 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA01E2D843C0077A780 /* PostViewController.swift */; };
+		F3554CA41E2D846F0077A780 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA31E2D846F0077A780 /* PostViewModel.swift */; };
 		F3928A131E2C33B200CC6D38 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3928A121E2C33B200CC6D38 /* Reference.swift */; };
 		F3A6EF1F1E2B44C100A24473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF1E1E2B44C100A24473 /* AppDelegate.swift */; };
 		F3A6EF241E2B44C100A24473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A6EF221E2B44C100A24473 /* Main.storyboard */; };
@@ -33,6 +37,8 @@
 		5F0C3E887556B93BE7724E91 /* Pods_Stitched_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stitched_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A251CD2C50D6FEB50EAC2BFE /* Pods-Stitched App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitched App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stitched App/Pods-Stitched App.debug.xcconfig"; sourceTree = "<group>"; };
 		C18BA26D8597533CCB21870E /* Pods-Stitched App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stitched App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stitched App/Pods-Stitched App.release.xcconfig"; sourceTree = "<group>"; };
+		F3039E6D1E2CA3ED006A6BD9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Backend/User.swift; sourceTree = "<group>"; };
+		F3039E701E2CCF44006A6BD9 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ViewControllers/Profile/ProfileViewController.swift; sourceTree = "<group>"; };
 		F30BBC451E2C1B5E000A807F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		F30BBC471E2C1B8B000A807F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ViewControllers/Home/HomeViewController.swift; sourceTree = "<group>"; };
 		F30BBC4A1E2C1C6D000A807F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Post.storyboard; sourceTree = "<group>"; };
@@ -42,6 +48,8 @@
 		F30BBC561E2C2321000A807F /* ClientTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ClientTabViewController.swift; path = ViewControllers/MainTab/ClientTabViewController.swift; sourceTree = "<group>"; };
 		F30BBC581E2C2344000A807F /* VendorTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VendorTabViewController.swift; path = ViewControllers/MainTab/VendorTabViewController.swift; sourceTree = "<group>"; };
 		F30BBC5A1E2C2827000A807F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F3554CA01E2D843C0077A780 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ViewControllers/Post/PostViewController.swift; sourceTree = "<group>"; };
+		F3554CA31E2D846F0077A780 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewModel.swift; path = ViewModels/PostViewModel.swift; sourceTree = "<group>"; };
 		F3928A121E2C33B200CC6D38 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reference.swift; path = Backend/Reference.swift; sourceTree = "<group>"; };
 		F3A6EF1B1E2B44C100A24473 /* Stitched App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stitched App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6EF1E1E2B44C100A24473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +93,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F3039E6F1E2CCF1F006A6BD9 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F3039E701E2CCF44006A6BD9 /* ProfileViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		F30BBC431E2C1B27000A807F /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,24 +121,34 @@
 		F30BBC5C1E2C28CE000A807F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F30BBC5D1E2C28E1000A807F /* LoginSignup */,
+				F3554CA21E2D84460077A780 /* Post */,
 			);
 			name = ViewModels;
-			sourceTree = "<group>";
-		};
-		F30BBC5D1E2C28E1000A807F /* LoginSignup */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = LoginSignup;
 			sourceTree = "<group>";
 		};
 		F30BBC5E1E2C290B000A807F /* Backend */ = {
 			isa = PBXGroup;
 			children = (
 				F3928A121E2C33B200CC6D38 /* Reference.swift */,
+				F3039E6D1E2CA3ED006A6BD9 /* User.swift */,
 			);
 			name = Backend;
+			sourceTree = "<group>";
+		};
+		F3554C9F1E2D84150077A780 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				F3554CA01E2D843C0077A780 /* PostViewController.swift */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		F3554CA21E2D84460077A780 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				F3554CA31E2D846F0077A780 /* PostViewModel.swift */,
+			);
+			name = Post;
 			sourceTree = "<group>";
 		};
 		F3A6EF121E2B44C100A24473 = {
@@ -163,8 +189,10 @@
 		F3A6EF301E2B4B5100A24473 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F3554C9F1E2D84150077A780 /* Post */,
 				F30BBC551E2C22EC000A807F /* MainTab */,
 				F30BBC431E2C1B27000A807F /* Home */,
+				F3039E6F1E2CCF1F006A6BD9 /* Profile */,
 				F3A6EF351E2B5AC000A24473 /* LoginSignup */,
 			);
 			name = ViewControllers;
@@ -350,13 +378,17 @@
 				F3928A131E2C33B200CC6D38 /* Reference.swift in Sources */,
 				F3A6EF3D1E2B6BCD00A24473 /* LoginViewController.swift in Sources */,
 				F3A6EF431E2B6E6A00A24473 /* BorderLineButton.swift in Sources */,
+				F3554CA11E2D843C0077A780 /* PostViewController.swift in Sources */,
 				F3A6EF1F1E2B44C100A24473 /* AppDelegate.swift in Sources */,
 				F3A6EF3F1E2B6BCD00A24473 /* SignupViewController.swift in Sources */,
 				F3A6EF3E1E2B6BCD00A24473 /* NavLoginViewController.swift in Sources */,
+				F3039E711E2CCF44006A6BD9 /* ProfileViewController.swift in Sources */,
+				F3554CA41E2D846F0077A780 /* PostViewModel.swift in Sources */,
 				F30BBC571E2C2321000A807F /* ClientTabViewController.swift in Sources */,
 				F30BBC481E2C1B8B000A807F /* HomeViewController.swift in Sources */,
 				F3A6EF461E2B708A00A24473 /* ProfileTextField.swift in Sources */,
 				F30BBC591E2C2344000A807F /* VendorTabViewController.swift in Sources */,
+				F3039E6E1E2CA3ED006A6BD9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

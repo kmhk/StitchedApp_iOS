@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginViewController: UIViewController {
 
@@ -41,7 +42,31 @@ class LoginViewController: UIViewController {
 	
 	
 	@IBAction func loginBtnTap(_ sender: Any) {
+		MBProgressHUD.showAdded(to: self.view, animated: true)
 		
+		Reference.FBRef.login(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
+			if error != nil {
+				let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+				self.present(alert, animated: true, completion: nil)
+				
+				MBProgressHUD.hide(for: self.view, animated: true)
+				return
+			}
+			
+			User.getUser(fromID: user?.uid, complete: { (user) in
+				currentUser = user!
+				user?.saveUser()
+				
+				MBProgressHUD.hide(for: self.view, animated: true)
+				
+				if user?.role == Role.client.rawValue {
+					self.performSegue(withIdentifier: "segueClient", sender: nil)
+				} else {
+					self.performSegue(withIdentifier: "segueVendor", sender: nil)
+				}
+			})
+		}
 	}
 	
 	
