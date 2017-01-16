@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import MBProgressHUD
 
 var gKeyboardHeight = (216 + 44)
 
@@ -21,7 +23,6 @@ class SignupViewController: UIViewController {
 	@IBOutlet weak var txtPassword: ProfileTextField!
 	
 	@IBOutlet weak var switchClient: UISwitch!
-	
 	
 	var imgProfile: UIImage?
 	
@@ -77,6 +78,71 @@ class SignupViewController: UIViewController {
 	}
 	
 	@IBAction func registerBtnTap(_ sender: Any) {
+		if (txtFullName.text?.lengthOfBytes(using: .utf8))! < 0 ||
+			(txtEmail.text?.lengthOfBytes(using: .utf8))! < 0 ||
+			(txtPhoneNumber.text?.lengthOfBytes(using: .utf8))! < 0 ||
+			(txtPassword.text?.lengthOfBytes(using: .utf8))! < 0 ||
+			imgProfile == nil {
+			
+			let alert = UIAlertController(title: "", message: "Please type your information correctly", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+			present(alert, animated: true, completion: nil)
+			return
+		}
+		
+		MBProgressHUD.showAdded(to: self.view, animated: true)
+//		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		
+		Reference.firebaseRef.register(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
+			if error != nil {
+				let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+				self.present(alert, animated: true, completion: nil)
+				
+				MBProgressHUD.hide(for: self.view, animated: true)
+//				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+				return
+			}
+			
+			let imgData = UIImageJPEGRepresentation(self.imgProfile!, 0.5)
+			
+			let storageURL = Reference.firebaseRef.storageForAvatar(userID: (user?.uid)!)
+			let metaData = FIRStorageMetadata()
+			metaData.contentType = "image/jpg"
+			
+			storageURL.put(imgData!, metadata: metaData, completion: { (data, error) in
+				if error != nil {
+					let alert = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+					self.present(alert, animated: true, completion: nil)
+					
+					MBProgressHUD.hide(for: self.view, animated: true)
+//					UIApplication.shared.isNetworkActivityIndicatorVisible = false
+					return
+				}
+				
+				let avatarURL = data?.downloadURL()?.absoluteString
+				Reference.firebaseRef.addNewUser(id: (user?.uid)!,
+				                                 avatar: avatarURL!,
+				                                 fullName: self.txtFullName.text!,
+				                                 email: self.txtEmail.text!,
+				                                 phone: self.txtPhoneNumber.text!,
+				                                 role: (self.switchClient.isOn == true ? "client" : "vendor"))
+				
+				MBProgressHUD.hide(for: self.view, animated: true)
+//				UIApplication.shared.isNetworkActivityIndicatorVisible = false
+				
+				let alert = UIAlertController(title: "", message: "Successfully created user", preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (action) in
+					self.navigationController!.popViewController(animated: true)
+				}))
+				self.present(alert, animated: true, completion: nil)
+				
+//				DispatchQueue.main.async(execute: {
+//					self.navigationController!.popViewController(animated: true)
+//				})
+			})
+		}
 	}
 
 	@IBAction func backBtnTap(_ sender: Any) {
@@ -100,6 +166,12 @@ class SignupViewController: UIViewController {
     }
     */
 
+	
+	// MARK: - private methods
+	
+	private func register(withEmail: String, password: String, completion: @escaping () -> Swift.Void) {
+		
+	}
 }
 
 
