@@ -9,6 +9,7 @@
 import UIKit
 import UITextView_Placeholder
 import MobileCoreServices
+import MBProgressHUD
 
 class PostViewController: UIViewController {
 	
@@ -20,6 +21,24 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+		viewModel.errorHandler = { error in
+			let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+			self.present(alert, animated: true, completion: nil)
+			
+			MBProgressHUD.hide(for: self.view, animated: true)
+		}
+		
+		viewModel.completeHandler = { [weak self] in
+			let alert = UIAlertController(title: "", message: "Your job posted successfully", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+			self?.present(alert, animated: true, completion: nil)
+			
+			self?.viewModel.clearJobDetail()
+			self?.tableViewPost.reloadData()
+			
+			MBProgressHUD.hide(for: (self?.view)!, animated: true)
+		}
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +62,8 @@ class PostViewController: UIViewController {
 			self.present(alert, animated: true, completion: nil)
 			return
 		}
+		
+		MBProgressHUD.showAdded(to: self.view, animated: true)
 		
 		viewModel.postJob()
 	}

@@ -33,8 +33,8 @@ enum JobCategory: String {
 
 enum JobAttachType: String {
 	case nothing = "nothing"
-	case image = "image"
-	case video = "video"
+	case image = "jpg"
+	case video = "mov"
 }
 
 struct JobAttach {
@@ -81,14 +81,53 @@ struct Job {
 
 
 class PostViewModel: NSObject {
+	
 	var job: Job = Job()
+	
+	var errorHandler: ((Error) -> ())?
+	var completeHandler: (() -> ())?
 	
 	override init() {
 		super.init()
 	}
 	
+	func clearJobDetail() {
+		job.title = ""
+		job.description = ""
+		job.category = .one
+		job.deliveryTime = .one
+		job.attachment.type = .nothing
+	}
+	
 	func postJob() {
 		job.clientID = currentUser.id
-		job.id = job.clientID! + String(format: "_%f", NSDate().timeIntervalSince1970)
+		
+		let dateFormat = DateFormatter()
+		dateFormat.dateFormat = "yyyyMMddHHmmssz"
+		job.id = job.clientID! + dateFormat.string(from: Date())
+		
+		if job.attachment.type == .nothing {
+			Reference.FBRef.uploadJob(withJob: self.job, attachURL: "", completion: { (ref, error) in
+				guard error == nil else { self.errorHandler!(error!); return }
+				
+				self.completeHandler!()
+			})
+			
+		} else {
+			let data = (job.attachment.type == .image ?
+				UIImageJPEGRepresentation(job.attachment.getAttach() as! UIImage, 0.5) :
+				try? Data(contentsOf: job.attachment.getAttach() as! URL) )
+			
+			Reference.FBRef.uploadJobAttach(withID: job.id!, data: data!, type: job.attachment.type) { (metaData, error) in
+				guard error == nil else { self.errorHandler!(error!); return }
+				
+				let avatarURL = metaData?.downloadURL()?.absoluteString
+				Reference.FBRef.uploadJob(withJob: self.job, attachURL: avatarURL!, completion: { (ref, error) in
+					guard error == nil else { self.errorHandler!(error!); return }
+					
+					self.completeHandler!()
+				})
+			}
+		}
 	}
 }
