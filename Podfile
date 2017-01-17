@@ -9,9 +9,10 @@ target 'Stitched App' do
   pod 'Firebase/Core'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
-  pod ‘Firebase/Auth’
-  pod ‘Firebase/Messaging’
+  pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
   pod 'MBProgressHUD'
-  pod ‘Nuke’
+  pod 'Nuke'
+  pod 'UITextView+Placeholder', '~> 1.2'
 
 end

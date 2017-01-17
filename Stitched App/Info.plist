@@ -36,5 +36,7 @@
 	<string>using photos</string>
 	<key>NSCameraUsageDescription</key>
 	<string>using camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>using mic</string>
 </dict>
 </plist>

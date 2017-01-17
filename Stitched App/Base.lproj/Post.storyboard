@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Job Posting-->
         <scene sceneID="Qe9-sS-6CE">
             <objects>
-                <viewController id="AsK-jg-TRl" sceneMemberID="viewController">
+                <viewController id="AsK-jg-TRl" customClass="PostViewController" customModule="Stitched_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xp0-4a-dmK"/>
                         <viewControllerLayoutGuide type="bottom" id="BXK-3G-Cbh"/>
@@ -20,18 +21,142 @@
                     <view key="view" contentMode="scaleToFill" id="dP2-se-3BQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D1l-0j-uAX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostJobTitleCell" rowHeight="40" id="J5t-e9-C9K" customClass="PostJobTitleCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J5t-e9-C9K" id="HTK-nW-Vam">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="eg. Looking for a translator for my theory" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iBO-aK-iHE">
+                                                    <rect key="frame" x="15" y="8" width="350" height="31"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iBO-aK-iHE" secondAttribute="trailing" constant="2" id="Hd1-ba-dlI"/>
+                                                <constraint firstAttribute="topMargin" secondItem="iBO-aK-iHE" secondAttribute="top" id="Smj-Xi-jC5"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="iBO-aK-iHE" secondAttribute="leading" constant="-7" id="Zb5-21-agO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="iBO-aK-iHE" secondAttribute="bottom" constant="-7" id="nHz-Lk-CeF"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtTitle" destination="iBO-aK-iHE" id="Sca-wa-Syj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostJobDescriptionCell" rowHeight="192" id="HVC-aR-5Ql" customClass="PostJobDescriptionCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="68" width="375" height="192"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HVC-aR-5Ql" id="2N3-SS-GNa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="192"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h7E-23-kYN">
+                                                    <rect key="frame" x="13" y="8" width="359" height="176"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="topMargin" secondItem="h7E-23-kYN" secondAttribute="top" id="71C-mr-UII"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="h7E-23-kYN" secondAttribute="bottom" id="Gw6-bA-avB"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="h7E-23-kYN" secondAttribute="trailing" constant="-5" id="TDB-JY-4tp"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="h7E-23-kYN" secondAttribute="leading" constant="-5" id="kKL-jg-Pba"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtDescription" destination="h7E-23-kYN" id="MjK-HR-AxC"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostJobCategoryCell" id="RT0-lE-DgT" customClass="PostJobCategoryCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="260" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RT0-lE-DgT" id="24x-72-nvl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostJobDeliveryTimeCell" id="wMc-XF-gxx" customClass="PostJobDeliveryTimeCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="304" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wMc-XF-gxx" id="UwD-YM-fBy">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostJobAttachCell" rowHeight="128" id="h9a-mA-1iY" customClass="PostJobAttachCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9a-mA-1iY" id="1d6-bZ-gzI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JCY-Xn-aQv">
+                                                    <rect key="frame" x="17" y="3" width="340" height="123"/>
+                                                </imageView>
+                                                <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="L5V-hi-EFG">
+                                                    <rect key="frame" x="17" y="3" width="340" height="123"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JCY-Xn-aQv" firstAttribute="top" secondItem="1d6-bZ-gzI" secondAttribute="topMargin" constant="-5" id="0hP-6R-KZS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="JCY-Xn-aQv" secondAttribute="bottom" constant="-6" id="13b-h7-MLA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="JCY-Xn-aQv" secondAttribute="trailing" constant="10" id="Hvf-02-WWH"/>
+                                                <constraint firstItem="L5V-hi-EFG" firstAttribute="leading" secondItem="1d6-bZ-gzI" secondAttribute="leadingMargin" constant="9" id="KOB-m9-mB8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="L5V-hi-EFG" secondAttribute="trailing" constant="10" id="KtC-RX-ysG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="L5V-hi-EFG" secondAttribute="bottom" constant="-6" id="WHg-9y-FlU"/>
+                                                <constraint firstItem="L5V-hi-EFG" firstAttribute="top" secondItem="1d6-bZ-gzI" secondAttribute="topMargin" constant="-5" id="q7s-UD-laS"/>
+                                                <constraint firstItem="JCY-Xn-aQv" firstAttribute="leading" secondItem="1d6-bZ-gzI" secondAttribute="leadingMargin" constant="9" id="tGt-Tm-gyw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgView" destination="JCY-Xn-aQv" id="0w4-tF-iuz"/>
+                                            <outlet property="videoView" destination="L5V-hi-EFG" id="Ipm-xE-EWe"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="AsK-jg-TRl" id="d2U-QB-L9X"/>
+                                    <outlet property="delegate" destination="AsK-jg-TRl" id="HCq-TJ-hqc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D1l-0j-uAX" firstAttribute="leading" secondItem="dP2-se-3BQ" secondAttribute="leadingMargin" constant="-16" id="Ogk-7K-PUC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="D1l-0j-uAX" secondAttribute="trailing" constant="-16" id="X6D-MJ-bSA"/>
+                            <constraint firstItem="D1l-0j-uAX" firstAttribute="top" secondItem="Xp0-4a-dmK" secondAttribute="bottom" constant="-64" id="Z4i-TV-iaa"/>
+                            <constraint firstItem="BXK-3G-Cbh" firstAttribute="top" secondItem="D1l-0j-uAX" secondAttribute="bottom" constant="-49" id="u4v-xP-D9n"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="xai-15-WHI"/>
+                    <navigationItem key="navigationItem" title="Job Posting" id="xai-15-WHI">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="i97-Yp-eaK">
+                            <connections>
+                                <action selector="postBtnTap:" destination="AsK-jg-TRl" id="NWt-sW-dM4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableViewPost" destination="D1l-0j-uAX" id="94y-rq-xTe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tyl-Kk-Y1B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912.79999999999995" y="77.811094452773617"/>
+            <point key="canvasLocation" x="911.20000000000005" y="76.911544227886068"/>
         </scene>
         <!--Post-->
         <scene sceneID="HLc-jO-kY6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="aRc-Xt-5ow" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aRc-Xt-5ow" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Post" image="PostTabInactive" selectedImage="PostTabActive" id="MIy-iS-Z9y"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

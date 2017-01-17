@@ -21,6 +21,12 @@
 		F30BBC5B1E2C2827000A807F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F30BBC5A1E2C2827000A807F /* GoogleService-Info.plist */; };
 		F3554CA11E2D843C0077A780 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA01E2D843C0077A780 /* PostViewController.swift */; };
 		F3554CA41E2D846F0077A780 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA31E2D846F0077A780 /* PostViewModel.swift */; };
+		F3554CA61E2D897F0077A780 /* PostJobTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */; };
+		F3554CA81E2D8B0C0077A780 /* PostJobDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA71E2D8B0C0077A780 /* PostJobDescriptionCell.swift */; };
+		F3554CAA1E2DA0850077A780 /* PostJobCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA91E2DA0850077A780 /* PostJobCategoryCell.swift */; };
+		F3554CAC1E2DA0A50077A780 /* PostJobDeliveryTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CAB1E2DA0A50077A780 /* PostJobDeliveryTimeCell.swift */; };
+		F3554CAE1E2DA0C70077A780 /* PostJobAttachCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CAD1E2DA0C70077A780 /* PostJobAttachCell.swift */; };
+		F3554CB01E2DA9190077A780 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CAF1E2DA9190077A780 /* Utils.swift */; };
 		F3928A131E2C33B200CC6D38 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3928A121E2C33B200CC6D38 /* Reference.swift */; };
 		F3A6EF1F1E2B44C100A24473 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A6EF1E1E2B44C100A24473 /* AppDelegate.swift */; };
 		F3A6EF241E2B44C100A24473 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3A6EF221E2B44C100A24473 /* Main.storyboard */; };
@@ -50,6 +56,12 @@
 		F30BBC5A1E2C2827000A807F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3554CA01E2D843C0077A780 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ViewControllers/Post/PostViewController.swift; sourceTree = "<group>"; };
 		F3554CA31E2D846F0077A780 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewModel.swift; path = ViewModels/PostViewModel.swift; sourceTree = "<group>"; };
+		F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobTitleCell.swift; path = ViewControllers/Post/PostJobTitleCell.swift; sourceTree = "<group>"; };
+		F3554CA71E2D8B0C0077A780 /* PostJobDescriptionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobDescriptionCell.swift; path = ViewControllers/Post/PostJobDescriptionCell.swift; sourceTree = "<group>"; };
+		F3554CA91E2DA0850077A780 /* PostJobCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobCategoryCell.swift; path = ViewControllers/Post/PostJobCategoryCell.swift; sourceTree = "<group>"; };
+		F3554CAB1E2DA0A50077A780 /* PostJobDeliveryTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobDeliveryTimeCell.swift; path = ViewControllers/Post/PostJobDeliveryTimeCell.swift; sourceTree = "<group>"; };
+		F3554CAD1E2DA0C70077A780 /* PostJobAttachCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobAttachCell.swift; path = ViewControllers/Post/PostJobAttachCell.swift; sourceTree = "<group>"; };
+		F3554CAF1E2DA9190077A780 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Backend/Utils.swift; sourceTree = "<group>"; };
 		F3928A121E2C33B200CC6D38 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reference.swift; path = Backend/Reference.swift; sourceTree = "<group>"; };
 		F3A6EF1B1E2B44C100A24473 /* Stitched App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stitched App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3A6EF1E1E2B44C100A24473 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +143,7 @@
 			children = (
 				F3928A121E2C33B200CC6D38 /* Reference.swift */,
 				F3039E6D1E2CA3ED006A6BD9 /* User.swift */,
+				F3554CAF1E2DA9190077A780 /* Utils.swift */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -139,6 +152,11 @@
 			isa = PBXGroup;
 			children = (
 				F3554CA01E2D843C0077A780 /* PostViewController.swift */,
+				F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */,
+				F3554CA71E2D8B0C0077A780 /* PostJobDescriptionCell.swift */,
+				F3554CA91E2DA0850077A780 /* PostJobCategoryCell.swift */,
+				F3554CAB1E2DA0A50077A780 /* PostJobDeliveryTimeCell.swift */,
+				F3554CAD1E2DA0C70077A780 /* PostJobAttachCell.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -383,11 +401,17 @@
 				F3A6EF3F1E2B6BCD00A24473 /* SignupViewController.swift in Sources */,
 				F3A6EF3E1E2B6BCD00A24473 /* NavLoginViewController.swift in Sources */,
 				F3039E711E2CCF44006A6BD9 /* ProfileViewController.swift in Sources */,
+				F3554CAC1E2DA0A50077A780 /* PostJobDeliveryTimeCell.swift in Sources */,
+				F3554CA61E2D897F0077A780 /* PostJobTitleCell.swift in Sources */,
 				F3554CA41E2D846F0077A780 /* PostViewModel.swift in Sources */,
 				F30BBC571E2C2321000A807F /* ClientTabViewController.swift in Sources */,
 				F30BBC481E2C1B8B000A807F /* HomeViewController.swift in Sources */,
+				F3554CA81E2D8B0C0077A780 /* PostJobDescriptionCell.swift in Sources */,
+				F3554CAA1E2DA0850077A780 /* PostJobCategoryCell.swift in Sources */,
+				F3554CB01E2DA9190077A780 /* Utils.swift in Sources */,
 				F3A6EF461E2B708A00A24473 /* ProfileTextField.swift in Sources */,
 				F30BBC591E2C2344000A807F /* VendorTabViewController.swift in Sources */,
+				F3554CAE1E2DA0C70077A780 /* PostJobAttachCell.swift in Sources */,
 				F3039E6E1E2CA3ED006A6BD9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -73,6 +73,23 @@ struct Reference {
 				completion(data, error)
 			})
 		}
+		
+		
+		// MARK: job management
+		static func storageForJobAttach(jobID: String) -> FIRStorageReference {
+			return Reference.FBRef.storage.child("jobattach").child(jobID)
+		}
+		
+		
+		static func uploadJobAttach(withID: String, data: Data, type: JobAttachType, completion: @escaping (_ data: FIRStorageMetadata?, _ error: Error?) -> Swift.Void) {
+			let storageURL = Reference.FBRef.storageForAvatar(userID: withID)
+			let metaData = FIRStorageMetadata()
+			metaData.contentType = (type == .image ? "image/jpg" : "video/mp4")
+			
+			storageURL.put(data, metadata: metaData) { (data, error) in
+				completion(data, error)
+			}
+		}
 	}
 	
 }
