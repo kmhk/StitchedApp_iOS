@@ -80,6 +80,43 @@ struct Reference {
 		
 		
 		// MARK: job management
+		static func loadPostedJob(Of user: User?, forUser: User?, completion: @escaping (_ jobs: [PostedJob]) -> Swift.Void) {
+			Reference.FBRef.allJobs.observe(.value, with: { (snap) in
+				let allItems = snap.value as! [String: AnyObject]!
+				
+				var jobs = [PostedJob]()
+				
+				for key in (allItems?.keys)! {
+					let each = allItems?[key] as! [String: AnyObject]!
+					
+					var aJob = PostedJob()
+					aJob.id = key
+					aJob.title = each?["title"] as! String?
+					aJob.description = each?["description"] as! String?
+					aJob.category = JobCategory(s: (each?["category"] as! String?)!)
+					aJob.deliveryTime = JobDeliverTime(s: (each?["deliverTime"] as! String?)!)
+					aJob.price = each?["price"] as! String?
+					aJob.attachType = JobAttachType(s: (each?["attachType"] as! String?)!)
+					aJob.attachURL = each?["attachURL"] as! String?
+					aJob.clientID = each?["owner"] as! String?
+					
+					if each?["bids"] != nil {
+						let bids = each?["bids"] as! [String: AnyObject]!
+						aJob.bids = bids
+					}
+					
+					if user?.id == each?["owner"] as! String? || (user == nil && forUser == nil) {
+						jobs.append(aJob)
+						
+					} else if forUser != nil && aJob.bids?[(forUser?.id)!] != nil {
+						jobs.append(aJob)
+					}
+				}
+				
+				completion(jobs)
+			})
+		}
+		
 		static func storageForJobAttach(jobID: String) -> FIRStorageReference {
 			return Reference.FBRef.storage.child("jobattach").child(jobID)
 		}
@@ -110,6 +147,18 @@ struct Reference {
 			let record = [withJob.id! : job]
 			
 			Reference.FBRef.allJobs.updateChildValues(record) { (error, ref) in
+				completion(ref, error)
+			}
+		}
+		
+		
+		// MARK: bid to job
+		static func bidTo(Job job: PostedJob, user: User, propsal: String, completion:  @escaping (_ ref: FIRDatabaseReference?, _ error: Error?) -> Swift.Void) {
+			let date = NSDate().timeIntervalSince1970
+			let bid = ["created_date": date,
+			           "proposal": propsal] as [String: Any]
+			let record = [user.id: bid]
+			Reference.FBRef.allJobs.child(job.id!).child("bids").updateChildValues(record) { (error, ref) in
 				completion(ref, error)
 			}
 		}

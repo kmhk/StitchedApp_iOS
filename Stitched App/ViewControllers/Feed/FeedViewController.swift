@@ -42,7 +42,7 @@ class FeedViewController: UIViewController {
         // Pass the selected object to the new view controller.
 		if segue.identifier == "segueDetail" {
 			let vc = segue.destination as! JobDetailViewController
-			vc.job = viewModel.allJobs[(sender as! IndexPath).row]
+			vc.setJob(job: viewModel.allJobs[(sender as! IndexPath).row])
 		}
     }
 

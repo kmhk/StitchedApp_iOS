@@ -17,6 +17,8 @@ class FeedTableViewCell: UITableViewCell {
 	@IBOutlet weak var lblBudget: UILabel!
 	@IBOutlet weak var deliverTime: UILabel!
 	
+	@IBOutlet weak var lblBidMark: UILabel!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,5 +35,11 @@ class FeedTableViewCell: UITableViewCell {
 		lblDescription.text = job.description
 		lblBudget.text = "Budget: $" + job.price!
 		deliverTime.text = job.deliveryTime.rawValue
+		
+		if job.bids?[currentUser.id] == nil {
+			lblBidMark.isHidden = true
+		} else {
+			lblBidMark.isHidden = false
+		}
 	}
 }

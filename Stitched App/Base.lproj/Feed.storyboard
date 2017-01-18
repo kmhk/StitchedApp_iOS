@@ -35,6 +35,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.20000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have bid already!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ML9-Ny-bOg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="105"/>
+                                                    <color key="backgroundColor" red="0.23801191259999999" green="0.92005076139999997" blue="0.477839085" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="DamascusBold" family="Damascus" pointSize="20"/>
+                                                    <color key="textColor" red="0.84375099315051305" green="1" blue="0.81722023086827633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job Title Job Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMZ-RS-HIu">
                                                     <rect key="frame" x="14" y="16" width="353" height="30"/>
                                                     <constraints>
@@ -84,8 +91,12 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="2m2-vF-XNB" secondAttribute="bottom" constant="-5" id="R3Z-Ra-i0g"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ZmN-FZ-Op1" secondAttribute="bottom" constant="-5" id="TfX-Yv-jZa"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="2Ai-xx-XqS" secondAttribute="bottom" constant="-8" id="dpU-YC-4mW"/>
+                                                <constraint firstItem="ML9-Ny-bOg" firstAttribute="top" secondItem="GOs-s9-3vR" secondAttribute="topMargin" constant="-8" id="h4W-rV-Btj"/>
+                                                <constraint firstItem="ML9-Ny-bOg" firstAttribute="leading" secondItem="GOs-s9-3vR" secondAttribute="leadingMargin" constant="-8" id="iKZ-Nc-3Ek"/>
                                                 <constraint firstItem="ZmN-FZ-Op1" firstAttribute="leading" secondItem="GOs-s9-3vR" secondAttribute="leadingMargin" constant="11" id="r4i-Or-kla"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ML9-Ny-bOg" secondAttribute="trailing" constant="-8" id="rmH-0m-mn7"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="2Ai-xx-XqS" secondAttribute="leading" id="tF9-3Z-5yA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ML9-Ny-bOg" secondAttribute="bottom" constant="-8" id="w78-hG-im8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -99,6 +110,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="deliverTime" destination="ZmN-FZ-Op1" id="O3G-65-5xU"/>
+                                            <outlet property="lblBidMark" destination="ML9-Ny-bOg" id="P0I-18-woN"/>
                                             <outlet property="lblBudget" destination="2m2-vF-XNB" id="Pzh-ng-C0p"/>
                                             <outlet property="lblDescription" destination="68Z-Xo-AIb" id="rKg-Qq-cYx"/>
                                             <outlet property="lblTitle" destination="WMZ-RS-HIu" id="hol-vj-t53"/>

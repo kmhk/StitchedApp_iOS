@@ -19,6 +19,7 @@ struct PostedJob {
 	var attachType: JobAttachType
 	var attachURL: String?
 	var clientID: String?
+	var bids: [String: AnyObject]?
 	
 	init() {
 		self.category = .one
@@ -34,30 +35,16 @@ class HomeViewModel: NSObject {
 	var loadCompleteHandler: (() -> ())?
 	
 	func loadMyPostingJobs() {
-		//Reference.FBRef.allJobs.observeSingleEvent(of: .value, with: { (snap) in
-		Reference.FBRef.allJobs.observe(.value, with: { (snap) in
-			let allItems = snap.value as! [String: AnyObject]!
-			
-			self.myJobs.removeAll()
-			for key in (allItems?.keys)! {
-				let each = allItems?[key] as! [String: AnyObject]!
-				
-				if currentUser.id == each?["owner"] as! String? {
-					var aJob = PostedJob()
-					aJob.id = key
-					aJob.title = each?["title"] as! String?
-					aJob.description = each?["description"] as! String?
-					aJob.category = JobCategory(s: (each?["category"] as! String?)!)
-					aJob.deliveryTime = JobDeliverTime(s: (each?["deliverTime"] as! String?)!)
-					aJob.price = each?["price"] as! String?
-					aJob.attachType = JobAttachType(s: (each?["attachType"] as! String?)!)
-					aJob.attachURL = each?["attachURL"] as! String?
-					aJob.clientID = each?["owner"] as! String?
-					self.myJobs.append(aJob)
-				}
-			}
-			
+		Reference.FBRef.loadPostedJob(Of: currentUser, forUser: nil) { (jobs) in
+			self.myJobs = jobs
 			self.loadCompleteHandler!()
-		})
+		}
+	}
+	
+	func loadMyBiddedJobs() {
+		Reference.FBRef.loadPostedJob(Of: nil, forUser: currentUser) { (jobs) in
+			self.myJobs = jobs
+			self.loadCompleteHandler!()
+		}
 	}
 }

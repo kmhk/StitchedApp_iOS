@@ -22,7 +22,11 @@ class HomeViewController: UIViewController {
 			self?.collectionView.reloadData()
 		}
 		
-		viewModel.loadMyPostingJobs()
+		if currentUser.role == "vendor" {
+			viewModel.loadMyBiddedJobs()
+		} else {
+			viewModel.loadMyPostingJobs()
+		}
     }
 	
 	override func viewDidAppear(_ animated: Bool) {
@@ -43,7 +47,7 @@ class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
 		if segue.identifier == "segueDetail" {
 			let vc = segue.destination as! JobDetailViewController
-			vc.job = viewModel.myJobs[(sender as! IndexPath).row]
+			vc.setJob(job: viewModel.myJobs[(sender as! IndexPath).row])
 		}
     }
 

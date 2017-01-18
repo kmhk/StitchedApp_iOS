@@ -14,6 +14,7 @@ class DetailJobBidCell: UITableViewCell {
 	
 	@IBOutlet weak var txtBid: UITextView!
 	@IBOutlet weak var btnBid: UIButton!
+	@IBOutlet weak var lblProposal: UILabel!
 	
 	var bidHandler: (() -> ())?
 
@@ -34,4 +35,23 @@ class DetailJobBidCell: UITableViewCell {
 		bidHandler!()
 	}
 
+	func setup(withJob job: PostedJob, status: BidStatus) {
+		txtBid.text = ""
+		txtBid.placeholder = "Please type your proposal here"
+		txtBid.becomeFirstResponder()
+		
+		if status == .bidding {
+			txtBid.isEditable = true
+			btnBid.isHidden = false
+			lblProposal.isHidden = true
+			
+		} else {
+			txtBid.isEditable = false
+			btnBid.isHidden = true
+			lblProposal.isHidden = false
+			
+			var bidInfo = job.bids?[currentUser.id] as! [String: AnyObject]
+			txtBid.text = bidInfo["proposal"] as! String!
+		}
+	}
 }

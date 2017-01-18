@@ -24,7 +24,6 @@
 		F34732541E2EA02E007EA9DE /* PostJobPriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732531E2EA02E007EA9DE /* PostJobPriceCell.swift */; };
 		F34732561E2EA683007EA9DE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732551E2EA683007EA9DE /* HomeViewModel.swift */; };
 		F34732591E2EE518007EA9DE /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732581E2EE518007EA9DE /* FeedViewController.swift */; };
-		F347325B1E2EE961007EA9DE /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347325A1E2EE961007EA9DE /* FeedTableViewCell.swift */; };
 		F347325D1E2EEFF4007EA9DE /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347325C1E2EEFF4007EA9DE /* FeedViewModel.swift */; };
 		F34732601E2EF69A007EA9DE /* JobDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F347325E1E2EF69A007EA9DE /* JobDetail.storyboard */; };
 		F34732631E2EF79B007EA9DE /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732621E2EF79B007EA9DE /* JobDetailViewController.swift */; };
@@ -34,6 +33,9 @@
 		F347326B1E2EFEF4007EA9DE /* DetailJobInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347326A1E2EFEF4007EA9DE /* DetailJobInfoCell.swift */; };
 		F347326D1E2EFF14007EA9DE /* DetailJobAttachCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347326C1E2EFF14007EA9DE /* DetailJobAttachCell.swift */; };
 		F347326F1E2F1023007EA9DE /* DetailJobBidCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347326E1E2F1023007EA9DE /* DetailJobBidCell.swift */; };
+		F34732751E2FFC76007EA9DE /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732741E2FFC76007EA9DE /* JobDetailViewModel.swift */; };
+		F34732771E2FFC97007EA9DE /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732761E2FFC97007EA9DE /* FeedTableViewCell.swift */; };
+		F347327D1E301901007EA9DE /* DetailJobBidderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347327C1E301901007EA9DE /* DetailJobBidderCell.swift */; };
 		F3554CA11E2D843C0077A780 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA01E2D843C0077A780 /* PostViewController.swift */; };
 		F3554CA41E2D846F0077A780 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA31E2D846F0077A780 /* PostViewModel.swift */; };
 		F3554CA61E2D897F0077A780 /* PostJobTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */; };
@@ -74,7 +76,6 @@
 		F34732531E2EA02E007EA9DE /* PostJobPriceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobPriceCell.swift; path = ViewControllers/Post/PostJobPriceCell.swift; sourceTree = "<group>"; };
 		F34732551E2EA683007EA9DE /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = ViewModels/HomeViewModel.swift; sourceTree = "<group>"; };
 		F34732581E2EE518007EA9DE /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewController.swift; path = ViewControllers/Feed/FeedViewController.swift; sourceTree = "<group>"; };
-		F347325A1E2EE961007EA9DE /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		F347325C1E2EEFF4007EA9DE /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewModel.swift; path = ViewModels/FeedViewModel.swift; sourceTree = "<group>"; };
 		F347325F1E2EF69A007EA9DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JobDetail.storyboard; sourceTree = "<group>"; };
 		F34732621E2EF79B007EA9DE /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobDetailViewController.swift; path = ViewControllers/JobDetail/JobDetailViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +85,9 @@
 		F347326A1E2EFEF4007EA9DE /* DetailJobInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailJobInfoCell.swift; path = ViewControllers/JobDetail/DetailJobInfoCell.swift; sourceTree = "<group>"; };
 		F347326C1E2EFF14007EA9DE /* DetailJobAttachCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailJobAttachCell.swift; path = ViewControllers/JobDetail/DetailJobAttachCell.swift; sourceTree = "<group>"; };
 		F347326E1E2F1023007EA9DE /* DetailJobBidCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailJobBidCell.swift; path = ViewControllers/JobDetail/DetailJobBidCell.swift; sourceTree = "<group>"; };
+		F34732741E2FFC76007EA9DE /* JobDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobDetailViewModel.swift; path = ViewModels/JobDetailViewModel.swift; sourceTree = "<group>"; };
+		F34732761E2FFC97007EA9DE /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewCell.swift; path = ViewControllers/Feed/FeedTableViewCell.swift; sourceTree = "<group>"; };
+		F347327C1E301901007EA9DE /* DetailJobBidderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailJobBidderCell.swift; path = ViewControllers/JobDetail/DetailJobBidderCell.swift; sourceTree = "<group>"; };
 		F3554CA01E2D843C0077A780 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ViewControllers/Post/PostViewController.swift; sourceTree = "<group>"; };
 		F3554CA31E2D846F0077A780 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewModel.swift; path = ViewModels/PostViewModel.swift; sourceTree = "<group>"; };
 		F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobTitleCell.swift; path = ViewControllers/Post/PostJobTitleCell.swift; sourceTree = "<group>"; };
@@ -184,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				F34732581E2EE518007EA9DE /* FeedViewController.swift */,
-				F347325A1E2EE961007EA9DE /* FeedTableViewCell.swift */,
+				F34732761E2FFC97007EA9DE /* FeedTableViewCell.swift */,
 			);
 			name = Feed;
 			sourceTree = "<group>";
@@ -199,6 +203,7 @@
 				F347326A1E2EFEF4007EA9DE /* DetailJobInfoCell.swift */,
 				F347326C1E2EFF14007EA9DE /* DetailJobAttachCell.swift */,
 				F347326E1E2F1023007EA9DE /* DetailJobBidCell.swift */,
+				F347327C1E301901007EA9DE /* DetailJobBidderCell.swift */,
 			);
 			name = JobDetail;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 		F3554CA21E2D84460077A780 /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				F34732741E2FFC76007EA9DE /* JobDetailViewModel.swift */,
 				F3554CA31E2D846F0077A780 /* PostViewModel.swift */,
 				F34732551E2EA683007EA9DE /* HomeViewModel.swift */,
 				F347325C1E2EEFF4007EA9DE /* FeedViewModel.swift */,
@@ -268,10 +274,10 @@
 				F34732611E2EF780007EA9DE /* JobDetail */,
 				F34732571E2EE4D4007EA9DE /* Feed */,
 				F3554C9F1E2D84150077A780 /* Post */,
-				F30BBC551E2C22EC000A807F /* MainTab */,
 				F30BBC431E2C1B27000A807F /* Home */,
 				F3039E6F1E2CCF1F006A6BD9 /* Profile */,
 				F3A6EF351E2B5AC000A24473 /* LoginSignup */,
+				F30BBC551E2C22EC000A807F /* MainTab */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -461,9 +467,10 @@
 				F3A6EF431E2B6E6A00A24473 /* BorderLineButton.swift in Sources */,
 				F347326F1E2F1023007EA9DE /* DetailJobBidCell.swift in Sources */,
 				F3554CA11E2D843C0077A780 /* PostViewController.swift in Sources */,
+				F34732751E2FFC76007EA9DE /* JobDetailViewModel.swift in Sources */,
 				F34732521E2E9C56007EA9DE /* HomeCollectionPostCell.swift in Sources */,
-				F347325B1E2EE961007EA9DE /* FeedTableViewCell.swift in Sources */,
 				F3A6EF1F1E2B44C100A24473 /* AppDelegate.swift in Sources */,
+				F34732771E2FFC97007EA9DE /* FeedTableViewCell.swift in Sources */,
 				F34732501E2E9C2E007EA9DE /* HomeColletionHeaderCell.swift in Sources */,
 				F3A6EF3F1E2B6BCD00A24473 /* SignupViewController.swift in Sources */,
 				F34732631E2EF79B007EA9DE /* JobDetailViewController.swift in Sources */,
@@ -486,6 +493,7 @@
 				F34732671E2EFE97007EA9DE /* DetailJobTitleCell.swift in Sources */,
 				F34732691E2EFECE007EA9DE /* DetailJobDescriptionCell.swift in Sources */,
 				F30BBC591E2C2344000A807F /* VendorTabViewController.swift in Sources */,
+				F347327D1E301901007EA9DE /* DetailJobBidderCell.swift in Sources */,
 				F34732591E2EE518007EA9DE /* FeedViewController.swift in Sources */,
 				F3554CAE1E2DA0C70077A780 /* PostJobAttachCell.swift in Sources */,
 				F3039E6E1E2CA3ED006A6BD9 /* User.swift in Sources */,
