@@ -23,6 +23,21 @@ struct User {
 	var email: String!
 	var phoneNumber: String!
 	var role: String!
+	var ranking: String!
+	var follower: Int
+	var network: Int
+	
+	init () {
+		self.id = ""
+		self.avatar = ""
+		self.name = ""
+		self.email = ""
+		self.phoneNumber = ""
+		self.role = ""
+		self.ranking = "0"
+		self.follower = 0
+		self.network = 0
+	}
 	
 	mutating func restoreUser() {
 		if let userData = UserDefaults.standard.value(forKey: "user_data") as! [String : String]! {
@@ -32,6 +47,9 @@ struct User {
 			self.email = userData["email"]
 			self.phoneNumber = userData["phoneNumber"]
 			self.role = userData["role"]
+			self.ranking = userData["ranking"]
+			self.follower = Int(userData["follower"]!)!
+			self.network = Int(userData["network"]!)!
 		}
 	}
 	
@@ -44,6 +62,9 @@ struct User {
 		userData.updateValue(self.email ?? "", forKey: "email")
 		userData.updateValue(self.phoneNumber ?? "", forKey: "phoneNumber")
 		userData.updateValue(self.role ?? "", forKey: "role")
+		userData.updateValue(self.ranking ?? "", forKey: "ranking")
+		userData.updateValue("\(self.follower)", forKey: "follower")
+		userData.updateValue("\(self.network)", forKey: "network")
 		
 		UserDefaults.standard.setValue(userData, forKey: "user_data")
 		UserDefaults.standard.synchronize()
@@ -61,6 +82,10 @@ struct User {
 			mySelf.avatar = userData?["avatar_image"] as! String!
 			mySelf.phoneNumber = userData?["phone"] as! String!
 			mySelf.role = userData?["role"] as! String!
+			
+			mySelf.ranking = (userData?["ranking"] != nil ? userData?["ranking"] as! String! : "0")
+			mySelf.follower = (userData?["follower"] != nil ? Int(userData?["follower"] as! String!)! : 0)
+			mySelf.network = (userData?["network"] != nil ? Int(userData?["network"] as! String!)! : 0)
 			
 			complete(mySelf)
 		})

@@ -56,8 +56,8 @@ class PostViewController: UIViewController {
     */
 	
 	@IBAction func postBtnTap(_ sender: Any) {
-		if viewModel.job.title == "" || viewModel.job.description == "" {
-			let alert = UIAlertController(title: "", message: "Please type your job title and description", preferredStyle: .alert)
+		if viewModel.job.title == "" || viewModel.job.description == "" || viewModel.job.price == "" {
+			let alert = UIAlertController(title: "", message: "Please type your job title, description and price", preferredStyle: .alert)
 			alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 			self.present(alert, animated: true, completion: nil)
 			return
@@ -142,6 +142,12 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 			viewModel.job.description = cell1?.txtDescription.text
 			cell1?.txtDescription.resignFirstResponder()
 		}
+		
+		let cell2 = self.tableViewPost.cellForRow(at: IndexPath(item: 0, section: 3)) as? PostJobPriceCell
+		if cell2 != nil {
+			viewModel.job.price = cell2?.txtPrice.text
+			cell2?.txtPrice.resignFirstResponder()
+		}
 	}
 	
 	func showPickerView(curText: String, section: Int) {
@@ -200,7 +206,7 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 5
+		return 6
 	}
 	
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -212,7 +218,9 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 			headerTitle = "Title"
 		} else if section == 2 { // job description cell
 			headerTitle = "Description"
-		} else if section == 3 { // job delivery time cell
+		} else if section == 3 { // job price cell
+			headerTitle = "Price"
+		} else if section == 4 { // job delivery time cell
 			headerTitle = "Deliver Time"
 		} else {
 			headerTitle = "Attachment"
@@ -233,7 +241,10 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 		} else if indexPath.section == 2 { // job description cell
 			height = 100
 			
-		} else if indexPath.section == 3 { // job delivery time cell
+		} else if indexPath.section == 3 { // job price cell
+			height = 40
+			
+		} else if indexPath.section == 4 { // job delivery time cell
 			height = 40
 			
 		} else {
@@ -266,7 +277,14 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			return cell
 			
-		} else if indexPath.section == 3 { // job delivery time cell
+		} else if indexPath.section == 3 { // job price time cell
+			let cell = tableView.dequeueReusableCell(withIdentifier: PostJobPriceCell.id, for: indexPath) as! PostJobPriceCell
+			cell.txtPrice.text = viewModel.job.price
+			cell.txtPrice.font = Utils.regularFont()
+			
+			return cell
+			
+		} else if indexPath.section == 4 { // job delivery time cell
 			let cell = tableView.dequeueReusableCell(withIdentifier: PostJobDeliveryTimeCell.id, for: indexPath) as! PostJobDeliveryTimeCell
 			cell.textLabel?.text = viewModel.job.deliveryTime.rawValue
 			cell.textLabel?.font = Utils.regularFont()
@@ -286,12 +304,16 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		if indexPath.section == 0 { // job category cell
 			showPickerView(curText: viewModel.job.category.rawValue, section: indexPath.section)
+			
 		} else if indexPath.section == 1 { // job title cell
 			
 		} else if indexPath.section == 2 { // job description cell
 			
-		} else if indexPath.section == 3 { // job delivery time cell
+		} else if indexPath.section == 3 { // job price cell
+			
+		} else if indexPath.section == 4 { // job delivery time cell
 			showPickerView(curText: viewModel.job.deliveryTime.rawValue, section: indexPath.section)
+			
 		} else {
 			onTakeAttachment()
 		}

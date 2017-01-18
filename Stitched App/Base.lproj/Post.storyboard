@@ -92,8 +92,33 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostJobPriceCell" rowHeight="40" id="ht2-IS-RiK" customClass="PostJobPriceCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ht2-IS-RiK" id="jmX-mm-CFS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="eg. 5000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baN-ho-dGf">
+                                                    <rect key="frame" x="15" y="8" width="351" height="31"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="baN-ho-dGf" secondAttribute="trailing" constant="9" id="224-bn-NqA"/>
+                                            <constraint firstItem="baN-ho-dGf" firstAttribute="leading" secondItem="ht2-IS-RiK" secondAttribute="leading" constant="15" id="Q8K-gl-o3f"/>
+                                            <constraint firstItem="baN-ho-dGf" firstAttribute="top" secondItem="ht2-IS-RiK" secondAttribute="top" constant="8" id="QBH-S1-qRa"/>
+                                            <constraint firstAttribute="bottom" secondItem="baN-ho-dGf" secondAttribute="bottom" constant="1" id="gxd-kj-uMA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="txtPrice" destination="baN-ho-dGf" id="nTM-6f-AFr"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostJobAttachCell" rowHeight="128" id="h9a-mA-1iY" customClass="PostJobAttachCell" customModule="Stitched_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="348" width="375" height="128"/>
+                                        <rect key="frame" x="0.0" y="388" width="375" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h9a-mA-1iY" id="1d6-bZ-gzI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>

@@ -16,6 +16,17 @@ enum JobDeliverTime: String {
 	case four = "more than 3 months"
 	
 	static let values = [one, two, three, four]
+	
+	init(s: String) {
+		for key in JobDeliverTime.values {
+			if s == key.rawValue {
+				self = key
+				return
+			}
+		}
+		
+		self = .one
+	}
 }
 
 enum JobCategory: String {
@@ -29,12 +40,36 @@ enum JobCategory: String {
 	case eight = "Culinary"
 	
 	static let values = [one, two, three, four, five, six, seven, eight]
+	
+	init(s: String) {
+		for key in JobCategory.values {
+			if s == key.rawValue {
+				self = key
+				return
+			}
+		}
+		
+		self = .one
+	}
 }
 
 enum JobAttachType: String {
 	case nothing = "nothing"
 	case image = "jpg"
 	case video = "mov"
+	
+	static let values = [nothing, image, video]
+	
+	init(s: String) {
+		for key in JobAttachType.values {
+			if s == key.rawValue {
+				self = key
+				return
+			}
+		}
+		
+		self = .nothing
+	}
 }
 
 struct JobAttach {
@@ -69,6 +104,7 @@ struct Job {
 	var description: String?
 	var category: JobCategory
 	var deliveryTime: JobDeliverTime
+	var price: String?
 	var attachment: JobAttach
 	var clientID: String?
 	
@@ -94,6 +130,7 @@ class PostViewModel: NSObject {
 	func clearJobDetail() {
 		job.title = ""
 		job.description = ""
+		job.price = ""
 		job.category = .one
 		job.deliveryTime = .one
 		job.attachment.type = .nothing

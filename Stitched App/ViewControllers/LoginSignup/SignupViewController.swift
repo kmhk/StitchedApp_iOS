@@ -118,22 +118,26 @@ class SignupViewController: UIViewController {
 		Reference.FBRef.register(withEmail: txtEmail.text!, password: txtPassword.text!) { (user, error) in
 			if error != nil {
 				errorHandler(error!)
+				return
 			}
 			
 			let imgData = UIImageJPEGRepresentation(self.imgProfile!, 0.5)
 			Reference.FBRef.uploadAvatarFile(withID: (user?.uid)!, imgData: imgData!, completion: { (data, error) in
-				if error != nil { errorHandler(error!) }
+				if error != nil { errorHandler(error!); return }
 				
 				let avatarURL = data?.downloadURL()?.absoluteString
-				Reference.FBRef.updateUser(id: (user?.uid)!,
-				                           avatar: avatarURL!,
-				                           fullName: self.txtFullName.text!,
-				                           email: self.txtEmail.text!,
-				                           phone: self.txtPhoneNumber.text!,
-				                           role: (self.switchClient.isOn == true ? Role.client.rawValue : Role.vendor.rawValue),
-				                           completion: { (ref, error) in
-												if error != nil { errorHandler(error!) }
-												completeHandler()
+				
+				var newUser = User()
+				newUser.id = (user?.uid)!
+				newUser.avatar = avatarURL!
+				newUser.name = self.txtFullName.text!
+				newUser.email = self.txtEmail.text!
+				newUser.phoneNumber = self.txtPhoneNumber.text!
+				newUser.role = (self.switchClient.isOn == true ? Role.client.rawValue : Role.vendor.rawValue)
+				
+				Reference.FBRef.updateUser(with: newUser, completion: { (ref, error) in
+					if error != nil { errorHandler(error!); return }
+					completeHandler()
 				})
 			})
 			

@@ -34,17 +34,19 @@ struct Reference {
 		}
 		
 		
-		static func updateUser(id: String, avatar: String, fullName: String, email: String, phone: String, role: String,
-		                       completion:  @escaping (_ ref: FIRDatabaseReference?, _ error: Error?) -> Swift.Void) {
+		static func updateUser(with usr: User, completion:  @escaping (_ ref: FIRDatabaseReference?, _ error: Error?) -> Swift.Void) {
 			let date = NSDate().timeIntervalSince1970
-			let user = ["name": fullName,
-			            "email": email,
-			            "phone": phone,
-			            "avatar_image": avatar,
-			            "role": role,
+			let user = ["name": usr.name,
+			            "email": usr.email,
+			            "phone": usr.phoneNumber,
+			            "avatar_image": usr.avatar,
+			            "role": usr.role,
 			            "created_date": date,
+			            "ranking": usr.ranking,
+			            "follower": "\(usr.follower)",
+						"network": "\(usr.network)",
 			            "followers": [Any]()] as [String : Any]
-			let record = [id: user]
+			let record = [usr.id: user]
 			Reference.FBRef.allUsers.updateChildValues(record) { (error, ref) in
 				completion(ref, error)
 			}
@@ -100,6 +102,7 @@ struct Reference {
 			           "description": withJob.description!,
 			           "category": withJob.category.rawValue,
 			           "deliverTime": withJob.deliveryTime.rawValue,
+			           "price": withJob.price!,
 			           "owner": withJob.clientID!,
 			           "attachType": withJob.attachment.type.rawValue,
 			           "attachURL": attachURL,

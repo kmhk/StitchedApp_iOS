@@ -25,6 +25,13 @@ class LoginViewController: UIViewController {
 		txtEmail.delegate = self
 		txtPassword.delegate = self
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		txtEmail.text = ""
+		txtPassword.text = ""
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

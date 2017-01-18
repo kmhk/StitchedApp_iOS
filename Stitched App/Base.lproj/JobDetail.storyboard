@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ODe-FB-YwN">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Job Detail View Controller-->
+        <scene sceneID="G55-7i-ykl">
+            <objects>
+                <viewController id="ODe-FB-YwN" customClass="JobDetailViewController" customModule="Stitched_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HHt-7L-fTh"/>
+                        <viewControllerLayoutGuide type="bottom" id="TY4-0l-u57"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Q7S-Yr-sxK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gFR-2l-4ec">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailJobIDCell" rowHeight="60" id="Ods-Hl-CYX" customClass="DetailJobIDCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ods-Hl-CYX" id="Gj6-Su-L2O">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job ID: xxxx ll" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gny-nE-RXR">
+                                                    <rect key="frame" x="8" y="8" width="359" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="avc-F2-Pyg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="topMargin" secondItem="Gny-nE-RXR" secondAttribute="top" id="LW2-qI-WeJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gny-nE-RXR" secondAttribute="trailing" id="fli-Nx-BqD"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Gny-nE-RXR" secondAttribute="leading" id="irp-R4-51W"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblID" destination="Gny-nE-RXR" id="8gr-yO-ili"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailJobTitleCell" rowHeight="90" id="rkQ-bQ-GwT" customClass="DetailJobTitleCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88" width="375" height="90"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rkQ-bQ-GwT" id="KSB-jb-Akj">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Title Title Title Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pf-Eo-EJu">
+                                                    <rect key="frame" x="8" y="0.0" width="359" height="87"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="3Pf-Eo-EJu" secondAttribute="bottom" constant="-5" id="990-tB-MJs"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="3Pf-Eo-EJu" secondAttribute="leading" id="fs9-zh-bhA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3Pf-Eo-EJu" secondAttribute="trailing" id="mL3-vl-vJo"/>
+                                                <constraint firstItem="3Pf-Eo-EJu" firstAttribute="top" secondItem="KSB-jb-Akj" secondAttribute="topMargin" constant="-8" id="xAY-bP-Luw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblTitle" destination="3Pf-Eo-EJu" id="eTQ-FR-pKJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailJobDescriptionCell" rowHeight="200" id="ffE-It-zEB" customClass="DetailJobDescriptionCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="178" width="375" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ffE-It-zEB" id="YcS-gN-ulV">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e2T-3Z-vNI">
+                                                    <rect key="frame" x="8" y="8" width="359" height="184"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="e2T-3Z-vNI" secondAttribute="leading" id="Dia-Re-x3Y"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="e2T-3Z-vNI" secondAttribute="trailing" id="MoQ-55-G5o"/>
+                                                <constraint firstAttribute="topMargin" secondItem="e2T-3Z-vNI" secondAttribute="top" id="fhe-dq-OEE"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="e2T-3Z-vNI" secondAttribute="bottom" id="xNj-IP-jbj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtDescription" destination="e2T-3Z-vNI" id="tc0-9X-Adn"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailJobInfoCell" rowHeight="96" id="ZbP-98-AkH" customClass="DetailJobInfoCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="378" width="375" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZbP-98-AkH" id="pTj-3h-vPc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category: Creativity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pe3-Cu-Acn">
+                                                    <rect key="frame" x="8" y="13" width="359" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="gqI-lr-Poc"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Time: less than a week" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XCb-Sj-E8e">
+                                                    <rect key="frame" x="8" y="37" width="359" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="ftd-W4-gzt"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price: $200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWx-Y6-kAh">
+                                                    <rect key="frame" x="8" y="59" width="359" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="iLR-e2-yMq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPL-tw-q7k">
+                                                    <rect key="frame" x="8" y="88" width="359" height="1"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="rfe-0D-qsu"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pe3-Cu-Acn" secondAttribute="trailing" id="027-Qg-P5m"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="KWx-Y6-kAh" secondAttribute="trailing" id="4Zd-RS-OYO"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vPL-tw-q7k" secondAttribute="trailing" id="5WS-2f-bcI"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="KWx-Y6-kAh" secondAttribute="leading" id="7ad-JE-QrO"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="pe3-Cu-Acn" secondAttribute="leading" id="9jv-En-7oy"/>
+                                                <constraint firstItem="pe3-Cu-Acn" firstAttribute="top" secondItem="pTj-3h-vPc" secondAttribute="topMargin" constant="5" id="Pzn-Pb-53A"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="XCb-Sj-E8e" secondAttribute="trailing" id="Vgf-7U-b9u"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="XCb-Sj-E8e" secondAttribute="leading" id="WXs-LH-59m"/>
+                                                <constraint firstItem="vPL-tw-q7k" firstAttribute="top" secondItem="pTj-3h-vPc" secondAttribute="topMargin" constant="80" id="e7I-GB-mln"/>
+                                                <constraint firstItem="KWx-Y6-kAh" firstAttribute="top" secondItem="pTj-3h-vPc" secondAttribute="topMargin" constant="51" id="iKm-bK-4xi"/>
+                                                <constraint firstItem="XCb-Sj-E8e" firstAttribute="top" secondItem="pTj-3h-vPc" secondAttribute="topMargin" constant="29" id="qjO-Zi-pwD"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="vPL-tw-q7k" secondAttribute="leading" id="thR-xe-Aag"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="lblCategory" destination="pe3-Cu-Acn" id="jOH-w1-m8T"/>
+                                            <outlet property="lblDelivery" destination="XCb-Sj-E8e" id="HYd-Mb-ps9"/>
+                                            <outlet property="lblPrice" destination="KWx-Y6-kAh" id="buv-bi-Unr"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailJobAttachCell" rowHeight="111" id="b6N-Ks-0Kh" customClass="DetailJobAttachCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="474" width="375" height="111"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b6N-Ks-0Kh" id="ckr-db-bvl">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KhK-RO-oOh">
+                                                    <rect key="frame" x="8" y="8" width="359" height="95"/>
+                                                </imageView>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxN-K1-c8e">
+                                                    <rect key="frame" x="8" y="8" width="359" height="95"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="yxN-K1-c8e" secondAttribute="trailing" id="0c8-gi-UcJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yxN-K1-c8e" secondAttribute="bottom" id="0tv-uw-EjK"/>
+                                                <constraint firstAttribute="topMargin" secondItem="yxN-K1-c8e" secondAttribute="top" id="2A9-go-jLT"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="yxN-K1-c8e" secondAttribute="leading" id="w4S-zo-tlY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="KhK-RO-oOh" firstAttribute="leading" secondItem="b6N-Ks-0Kh" secondAttribute="leading" constant="8" id="AQY-PA-bVO"/>
+                                            <constraint firstAttribute="trailing" secondItem="KhK-RO-oOh" secondAttribute="trailing" constant="8" id="Fa4-Uc-7E1"/>
+                                            <constraint firstAttribute="bottom" secondItem="KhK-RO-oOh" secondAttribute="bottom" constant="8" id="GKQ-vu-lPD"/>
+                                            <constraint firstItem="KhK-RO-oOh" firstAttribute="top" secondItem="b6N-Ks-0Kh" secondAttribute="top" constant="8" id="Tgw-lR-Ulj"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="imgView" destination="KhK-RO-oOh" id="GZr-Fl-y1r"/>
+                                            <outlet property="viewContainer" destination="yxN-K1-c8e" id="7ef-wP-nMp"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailJobBidCell" rowHeight="534" id="1co-vz-YgH" customClass="DetailJobBidCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="585" width="375" height="534"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1co-vz-YgH" id="WGm-NU-9F3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mdw-ke-jen">
+                                                    <rect key="frame" x="8" y="72" width="359" height="149"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYY-Zm-2rw">
+                                                    <rect key="frame" x="40" y="229" width="295" height="44"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="fUO-oW-1XX"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Submit Proposal">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="bidBtnTap:" destination="1co-vz-YgH" eventType="touchUpInside" id="5TW-WB-60e"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7f-fc-Wor">
+                                                    <rect key="frame" x="8" y="70" width="359" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Mdw-ke-jen" secondAttribute="trailing" id="4Sk-Uh-ApP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Mdw-ke-jen" secondAttribute="bottom" constant="305" id="5Go-aT-kpZ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LYY-Zm-2rw" secondAttribute="bottom" constant="253" id="FHk-9T-Iqn"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Mdw-ke-jen" secondAttribute="leading" id="QaA-1q-0ir"/>
+                                                <constraint firstItem="LYY-Zm-2rw" firstAttribute="leading" secondItem="WGm-NU-9F3" secondAttribute="leadingMargin" constant="32" id="TC0-LP-pWb"/>
+                                                <constraint firstItem="Mdw-ke-jen" firstAttribute="top" secondItem="WGm-NU-9F3" secondAttribute="topMargin" constant="64" id="cAN-aU-mC0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="LYY-Zm-2rw" secondAttribute="trailing" constant="32" id="goP-BS-0iN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="btnBid" destination="LYY-Zm-2rw" id="aBn-rR-Jcm"/>
+                                            <outlet property="txtBid" destination="Mdw-ke-jen" id="nYJ-eQ-v65"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ODe-FB-YwN" id="EJ4-eh-T0n"/>
+                                    <outlet property="delegate" destination="ODe-FB-YwN" id="idA-q8-bVb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="1200"/>
+                    <connections>
+                        <outlet property="tableJobDetail" destination="gFR-2l-4ec" id="RM5-Vc-Og9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-A5-Nkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.5999999999999996" y="117.84107946026987"/>
+        </scene>
+    </scenes>
+</document>

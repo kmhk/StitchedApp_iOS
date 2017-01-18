@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var txtName: ProfileTextField!
 	@IBOutlet weak var txtEmail: ProfileTextField!
 	@IBOutlet weak var txtPhoneNumber: ProfileTextField!
+	@IBOutlet weak var lblProfileID: UILabel!
 	
 	@IBOutlet weak var btnSave: UIButton!
 	
@@ -115,25 +116,25 @@ class ProfileViewController: UIViewController {
 		}
 		
 		let updateUser: ((String)->()) = { avatarURL in
-			Reference.FBRef.updateUser(
-				id: (self.user?.id)!,
-				avatar: avatarURL,
-			    fullName: self.txtName.text!,
-			    email: self.txtEmail.text!,
-			    phone: self.txtPhoneNumber.text!,
-			    role: (self.user?.role!)!,
-			    completion: { (ref, error) in
+			var newData = self.user
+			newData?.avatar = avatarURL
+			newData?.name = self.txtName.text!
+			newData?.email = self.txtEmail.text!
+			newData?.phoneNumber = self.txtPhoneNumber.text!
+			
+			Reference.FBRef.updateUser(with:  newData!, completion: { (ref, error) in
 					if error != nil { errorHandler(error!) }
 										
 					MBProgressHUD.hide(for: (self.view)!, animated: true)
 					
-					currentUser = User(id: (self.user?.id)!, avatar: avatarURL, name: self.txtName.text!,
-					                   email: self.txtEmail.text!, phoneNumber: self.txtPhoneNumber.text!, role: (self.user?.role!)!)
+					currentUser = newData!
 					currentUser.saveUser()
 										
 					let alert = UIAlertController(title: "", message: "Updating profile successfully", preferredStyle: .alert)
 					alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
 					self.present(alert, animated: true, completion: nil)
+				
+					self.user = currentUser
 			})
 		}
 		
@@ -197,12 +198,12 @@ class ProfileViewController: UIViewController {
 	private func showProfile() {
 		guard user != nil else { return	}
 		
-		//Nuke.loadImage(with: URL(string: (user?.avatar)!)!, into: imgViewAvatar)
 		var req = Request(url: URL(string: (user?.avatar)!)!)
 		req.memoryCacheOptions.readAllowed = false
 		req.memoryCacheOptions.writeAllowed = false
 		Nuke.loadImage(with: req, into: imgViewAvatar)
 		
+		lblProfileID.text = "Profile ID:  " + (user?.id)!
 		lblDescription.text = (user?.role == Role.client.rawValue ? "Client. Available posting a job" : "Vendor. Available biding to a job")
 		txtName.text = user?.name
 		txtEmail.text = user?.email
