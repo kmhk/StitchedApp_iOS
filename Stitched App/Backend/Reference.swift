@@ -17,6 +17,8 @@ struct Reference {
 		
 		static var allJobs = FIRDatabase.database().reference().child("jobs")
 		
+		static var allChats = FIRDatabase.database().reference().child("chatHistory")
+		
 		static var storage = FIRStorage.storage().reference(forURL: "gs://stitchedapp.appspot.com")
 		
 		// MARK: user management
@@ -36,6 +38,7 @@ struct Reference {
 		
 		static func updateUser(with usr: User, completion:  @escaping (_ ref: FIRDatabaseReference?, _ error: Error?) -> Swift.Void) {
 			let date = NSDate().timeIntervalSince1970
+			let loc = String(format:"%f", usr.location.latitude) + "," + String(format:"%f", usr.location.longitude)
 			let user = ["name": usr.name,
 			            "email": usr.email,
 			            "phone": usr.phoneNumber,
@@ -45,6 +48,8 @@ struct Reference {
 			            "ranking": usr.ranking,
 			            "follower": "\(usr.follower)",
 						"network": "\(usr.network)",
+						"location": loc,
+						"verified": String(usr.isVerified),
 			            "followers": [Any]()] as [String : Any]
 			let record = [usr.id: user]
 			Reference.FBRef.allUsers.updateChildValues(record) { (error, ref) in
@@ -82,6 +87,8 @@ struct Reference {
 		// MARK: job management
 		static func loadPostedJob(Of user: User?, forUser: User?, completion: @escaping (_ jobs: [PostedJob]) -> Swift.Void) {
 			Reference.FBRef.allJobs.observe(.value, with: { (snap) in
+				guard (snap.value as AnyObject).classForCoder != NSNull.classForCoder() else { return }
+				
 				let allItems = snap.value as! [String: AnyObject]!
 				
 				var jobs = [PostedJob]()
@@ -162,6 +169,7 @@ struct Reference {
 				completion(ref, error)
 			}
 		}
+		
 	}
 	
 }

@@ -36,6 +36,13 @@
 		F34732751E2FFC76007EA9DE /* JobDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732741E2FFC76007EA9DE /* JobDetailViewModel.swift */; };
 		F34732771E2FFC97007EA9DE /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732761E2FFC97007EA9DE /* FeedTableViewCell.swift */; };
 		F347327D1E301901007EA9DE /* DetailJobBidderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347327C1E301901007EA9DE /* DetailJobBidderCell.swift */; };
+		F347327F1E30318F007EA9DE /* NavProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347327E1E30318F007EA9DE /* NavProfileViewController.swift */; };
+		F34732821E303482007EA9DE /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34732801E303482007EA9DE /* Chat.storyboard */; };
+		F34732851E30362A007EA9DE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732841E30362A007EA9DE /* ChatViewController.swift */; };
+		F34732871E3037F5007EA9DE /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732861E3037F5007EA9DE /* ChatViewModel.swift */; };
+		F347328A1E30569C007EA9DE /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732891E30569C007EA9DE /* CommunityViewController.swift */; };
+		F347328C1E3057DA007EA9DE /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347328B1E3057DA007EA9DE /* CommunityViewModel.swift */; };
+		F347328E1E305BD4007EA9DE /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347328D1E305BD4007EA9DE /* CommunityTableViewCell.swift */; };
 		F3554CA11E2D843C0077A780 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA01E2D843C0077A780 /* PostViewController.swift */; };
 		F3554CA41E2D846F0077A780 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA31E2D846F0077A780 /* PostViewModel.swift */; };
 		F3554CA61E2D897F0077A780 /* PostJobTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */; };
@@ -88,6 +95,13 @@
 		F34732741E2FFC76007EA9DE /* JobDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JobDetailViewModel.swift; path = ViewModels/JobDetailViewModel.swift; sourceTree = "<group>"; };
 		F34732761E2FFC97007EA9DE /* FeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedTableViewCell.swift; path = ViewControllers/Feed/FeedTableViewCell.swift; sourceTree = "<group>"; };
 		F347327C1E301901007EA9DE /* DetailJobBidderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailJobBidderCell.swift; path = ViewControllers/JobDetail/DetailJobBidderCell.swift; sourceTree = "<group>"; };
+		F347327E1E30318F007EA9DE /* NavProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavProfileViewController.swift; path = ViewControllers/Profile/NavProfileViewController.swift; sourceTree = "<group>"; };
+		F34732811E303482007EA9DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
+		F34732841E30362A007EA9DE /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ViewControllers/Chat/ChatViewController.swift; sourceTree = "<group>"; };
+		F34732861E3037F5007EA9DE /* ChatViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewModel.swift; path = ViewModels/ChatViewModel.swift; sourceTree = "<group>"; };
+		F34732891E30569C007EA9DE /* CommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityViewController.swift; path = ViewControllers/Community/CommunityViewController.swift; sourceTree = "<group>"; };
+		F347328B1E3057DA007EA9DE /* CommunityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityViewModel.swift; path = ViewModels/CommunityViewModel.swift; sourceTree = "<group>"; };
+		F347328D1E305BD4007EA9DE /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityTableViewCell.swift; path = ViewControllers/Community/CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		F3554CA01E2D843C0077A780 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ViewControllers/Post/PostViewController.swift; sourceTree = "<group>"; };
 		F3554CA31E2D846F0077A780 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewModel.swift; path = ViewModels/PostViewModel.swift; sourceTree = "<group>"; };
 		F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobTitleCell.swift; path = ViewControllers/Post/PostJobTitleCell.swift; sourceTree = "<group>"; };
@@ -142,6 +156,7 @@
 		F3039E6F1E2CCF1F006A6BD9 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				F347327E1E30318F007EA9DE /* NavProfileViewController.swift */,
 				F3039E701E2CCF44006A6BD9 /* ProfileViewController.swift */,
 			);
 			name = Profile;
@@ -169,7 +184,12 @@
 		F30BBC5C1E2C28CE000A807F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F3554CA21E2D84460077A780 /* Post */,
+				F34732741E2FFC76007EA9DE /* JobDetailViewModel.swift */,
+				F3554CA31E2D846F0077A780 /* PostViewModel.swift */,
+				F34732551E2EA683007EA9DE /* HomeViewModel.swift */,
+				F347325C1E2EEFF4007EA9DE /* FeedViewModel.swift */,
+				F34732861E3037F5007EA9DE /* ChatViewModel.swift */,
+				F347328B1E3057DA007EA9DE /* CommunityViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -208,6 +228,23 @@
 			name = JobDetail;
 			sourceTree = "<group>";
 		};
+		F34732831E3035F4007EA9DE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				F34732841E30362A007EA9DE /* ChatViewController.swift */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		F34732881E30567B007EA9DE /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				F34732891E30569C007EA9DE /* CommunityViewController.swift */,
+				F347328D1E305BD4007EA9DE /* CommunityTableViewCell.swift */,
+			);
+			name = Community;
+			sourceTree = "<group>";
+		};
 		F3554C9F1E2D84150077A780 /* Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,17 +255,6 @@
 				F3554CAB1E2DA0A50077A780 /* PostJobDeliveryTimeCell.swift */,
 				F3554CAD1E2DA0C70077A780 /* PostJobAttachCell.swift */,
 				F34732531E2EA02E007EA9DE /* PostJobPriceCell.swift */,
-			);
-			name = Post;
-			sourceTree = "<group>";
-		};
-		F3554CA21E2D84460077A780 /* Post */ = {
-			isa = PBXGroup;
-			children = (
-				F34732741E2FFC76007EA9DE /* JobDetailViewModel.swift */,
-				F3554CA31E2D846F0077A780 /* PostViewModel.swift */,
-				F34732551E2EA683007EA9DE /* HomeViewModel.swift */,
-				F347325C1E2EEFF4007EA9DE /* FeedViewModel.swift */,
 			);
 			name = Post;
 			sourceTree = "<group>";
@@ -271,6 +297,8 @@
 		F3A6EF301E2B4B5100A24473 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F34732881E30567B007EA9DE /* Community */,
+				F34732831E3035F4007EA9DE /* Chat */,
 				F34732611E2EF780007EA9DE /* JobDetail */,
 				F34732571E2EE4D4007EA9DE /* Feed */,
 				F3554C9F1E2D84150077A780 /* Post */,
@@ -290,6 +318,7 @@
 				F30BBC491E2C1C6D000A807F /* Post.storyboard */,
 				F30BBC4C1E2C1C85000A807F /* Feed.storyboard */,
 				F30BBC4F1E2C1CAE000A807F /* Communicate.storyboard */,
+				F34732801E303482007EA9DE /* Chat.storyboard */,
 				F30BBC521E2C1CBB000A807F /* Profile.storyboard */,
 				F347325E1E2EF69A007EA9DE /* JobDetail.storyboard */,
 			);
@@ -394,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3A6EF291E2B44C100A24473 /* LaunchScreen.storyboard in Resources */,
+				F34732821E303482007EA9DE /* Chat.storyboard in Resources */,
 				F30BBC511E2C1CAE000A807F /* Communicate.storyboard in Resources */,
 				F30BBC5B1E2C2827000A807F /* GoogleService-Info.plist in Resources */,
 				F30BBC541E2C1CBB000A807F /* Profile.storyboard in Resources */,
@@ -463,6 +493,8 @@
 			files = (
 				F34732651E2EFE6E007EA9DE /* DetailJobIDCell.swift in Sources */,
 				F3928A131E2C33B200CC6D38 /* Reference.swift in Sources */,
+				F347328C1E3057DA007EA9DE /* CommunityViewModel.swift in Sources */,
+				F347328E1E305BD4007EA9DE /* CommunityTableViewCell.swift in Sources */,
 				F3A6EF3D1E2B6BCD00A24473 /* LoginViewController.swift in Sources */,
 				F3A6EF431E2B6E6A00A24473 /* BorderLineButton.swift in Sources */,
 				F347326F1E2F1023007EA9DE /* DetailJobBidCell.swift in Sources */,
@@ -474,6 +506,7 @@
 				F34732501E2E9C2E007EA9DE /* HomeColletionHeaderCell.swift in Sources */,
 				F3A6EF3F1E2B6BCD00A24473 /* SignupViewController.swift in Sources */,
 				F34732631E2EF79B007EA9DE /* JobDetailViewController.swift in Sources */,
+				F34732871E3037F5007EA9DE /* ChatViewModel.swift in Sources */,
 				F34732541E2EA02E007EA9DE /* PostJobPriceCell.swift in Sources */,
 				F347326B1E2EFEF4007EA9DE /* DetailJobInfoCell.swift in Sources */,
 				F3A6EF3E1E2B6BCD00A24473 /* NavLoginViewController.swift in Sources */,
@@ -488,8 +521,11 @@
 				F3554CA81E2D8B0C0077A780 /* PostJobDescriptionCell.swift in Sources */,
 				F3554CAA1E2DA0850077A780 /* PostJobCategoryCell.swift in Sources */,
 				F3554CB01E2DA9190077A780 /* Utils.swift in Sources */,
+				F347328A1E30569C007EA9DE /* CommunityViewController.swift in Sources */,
 				F34732561E2EA683007EA9DE /* HomeViewModel.swift in Sources */,
 				F3A6EF461E2B708A00A24473 /* ProfileTextField.swift in Sources */,
+				F347327F1E30318F007EA9DE /* NavProfileViewController.swift in Sources */,
+				F34732851E30362A007EA9DE /* ChatViewController.swift in Sources */,
 				F34732671E2EFE97007EA9DE /* DetailJobTitleCell.swift in Sources */,
 				F34732691E2EFECE007EA9DE /* DetailJobDescriptionCell.swift in Sources */,
 				F30BBC591E2C2344000A807F /* VendorTabViewController.swift in Sources */,
@@ -549,6 +585,14 @@
 				F347325F1E2EF69A007EA9DE /* Base */,
 			);
 			name = JobDetail.storyboard;
+			sourceTree = "<group>";
+		};
+		F34732801E303482007EA9DE /* Chat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F34732811E303482007EA9DE /* Base */,
+			);
+			name = Chat.storyboard;
 			sourceTree = "<group>";
 		};
 		F3A6EF221E2B44C100A24473 /* Main.storyboard */ = {

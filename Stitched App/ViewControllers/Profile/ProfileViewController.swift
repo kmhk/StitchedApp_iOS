@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import Nuke
+import MapKit
 
 class ProfileViewController: UIViewController {
 	
@@ -19,7 +20,7 @@ class ProfileViewController: UIViewController {
 	@IBOutlet weak var txtEmail: ProfileTextField!
 	@IBOutlet weak var txtPhoneNumber: ProfileTextField!
 	@IBOutlet weak var lblProfileID: UILabel!
-	
+	@IBOutlet weak var mapView: MKMapView!
 	@IBOutlet weak var btnSave: UIButton!
 	
 	var user: User?
@@ -36,10 +37,30 @@ class ProfileViewController: UIViewController {
 		imgViewAvatar.layer.borderColor = UIColor.black.cgColor
 		imgViewAvatar.clipsToBounds = true
 		
+		mapView.layer.borderWidth = 1.0
+		mapView.layer.borderColor = UIColor.lightGray.cgColor
+		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(onTapAvatarImage(_:)))
 		imgViewAvatar.addGestureRecognizer(tap)
 		
-		setUser(withID: nil)
+		if (self.navigationController as! NavProfileViewController).user == nil {
+			setUser(withID: nil)
+			
+		} else {
+			user = (self.navigationController as! NavProfileViewController).user
+			
+			txtName.isEnabled = false
+			txtEmail.isEnabled = false
+			txtPhoneNumber.isEnabled = false
+			btnSave.isHidden = true
+			
+			imgViewAvatar.isUserInteractionEnabled = false
+			
+			navigationItem.title = "Profile"
+			
+			let barItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(onClose(_:)))
+			navigationItem.leftBarButtonItems = [barItem]
+		}
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +81,21 @@ class ProfileViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+	
+	public func setUser(with usr: User?) {
+		guard user != nil else { return	}
+		
+		txtName.isEnabled = false
+		txtEmail.isEnabled = false
+		txtPhoneNumber.isEnabled = false
+		btnSave.isHidden = true
+		
+		imgViewAvatar.isUserInteractionEnabled = false
+		
+		self.user = usr
+		
+		self.showProfile()
+	}
 	
 	public func setUser(withID: String?) {
 		if withID == currentUser.id || withID == nil {
@@ -155,11 +191,16 @@ class ProfileViewController: UIViewController {
 		}
 	}
 	
+	func onClose(_ sender: Any) {
+		self.navigationController?.dismiss(animated: true, completion: nil)
+	}
+	
 	func onLogout(_ sender: Any) {
 		let action = UIAlertController(title: "", message: "Are you sure sign out?", preferredStyle: .alert)
 		
 		action.addAction(UIAlertAction(title: "YES", style: .default, handler: { (action) in
 			Reference.FBRef.logout()
+			currentUser.id = ""
 			self.navigationController?.tabBarController?.navigationController?.popViewController(animated: true)
 		}))
 		action.addAction(UIAlertAction(title: "NO", style: .cancel, handler: nil))
@@ -208,6 +249,8 @@ class ProfileViewController: UIViewController {
 		txtName.text = user?.name
 		txtEmail.text = user?.email
 		txtPhoneNumber.text = user?.phoneNumber
+		
+		centerMapOnLocation(location: currentUser.location)
 	}
 }
 
@@ -232,3 +275,33 @@ extension ProfileViewController: UINavigationControllerDelegate, UIImagePickerCo
 	}
 }
 
+
+extension ProfileViewController: MKMapViewDelegate {
+	public func centerMapOnLocation(location: CLLocationCoordinate2D) {
+		let regionRadius: CLLocationDistance = 1000
+		let coordinateRegion = MKCoordinateRegionMakeWithDistance(location,
+		                                                          regionRadius * 2.0, regionRadius * 2.0)
+		mapView.setRegion(coordinateRegion, animated: true)
+		
+		mapView.showsUserLocation = true
+		
+		if user?.id != currentUser.id {
+			let artwork = Artwork(name: (user?.name)!, coordinate: (user?.location)!)
+			mapView.addAnnotation(artwork)
+		}
+	}
+	
+}
+
+
+class Artwork: NSObject, MKAnnotation {
+	var name: String
+	var coordinate: CLLocationCoordinate2D
+ 
+	init(name: String, coordinate: CLLocationCoordinate2D) {
+		self.name = name
+		self.coordinate = coordinate
+		
+		super.init()
+	}
+}

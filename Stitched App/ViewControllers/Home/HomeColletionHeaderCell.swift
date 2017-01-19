@@ -19,6 +19,8 @@ class HomeColletionHeaderCell: UICollectionReusableView {
 	@IBOutlet weak var lblFollower: UILabel!
 	@IBOutlet weak var lblNetwork: UILabel!
 	
+	@IBOutlet weak var imgVerified: UIImageView!
+	
 	override func layoutSubviews() {
 		imgViewAvatar.layer.cornerRadius = imgViewAvatar.frame.size.width / 2
 		imgViewAvatar.clipsToBounds = true
@@ -35,5 +37,7 @@ class HomeColletionHeaderCell: UICollectionReusableView {
 		lblName.text = currentUser.name
 		lblFollower.text = "\(currentUser.follower)"
 		lblNetwork.text = "\(currentUser.network)"
+		
+		imgVerified.isHidden = !currentUser.isVerified
 	}
 }

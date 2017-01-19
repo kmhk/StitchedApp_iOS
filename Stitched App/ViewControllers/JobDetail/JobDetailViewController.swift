@@ -84,15 +84,19 @@ class JobDetailViewController: UIViewController {
 	
 	
 
-    /*
-    // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+		if segue.identifier == "segueProfile" {
+			let vc = segue.destination as! NavProfileViewController
+			vc.user = sender as! User!
+			
+		} else if segue.identifier == "segueChat" {
+			let vc = segue.destination as! ChatViewController
+			vc.viewModel.chatRoomID = currentUser.id + "+" + ((sender as! User!)?.id)!
+		}
     }
-    */
 
 }
 
@@ -171,6 +175,8 @@ extension JobDetailViewController: UITableViewDataSource, UITableViewDelegate {
 				
 				cell.bidHandler = { [weak cell] in
 					cell?.txtBid.resignFirstResponder()
+					cell?.txtBid.isEditable = false
+					cell?.btnBid.isHidden = true
 					
 					MBProgressHUD.showAdded(to: self.view, animated: true)
 					self.viewModel.bidToJob(withPropsal: (cell?.txtBid.text)!)
@@ -182,6 +188,11 @@ extension JobDetailViewController: UITableViewDataSource, UITableViewDelegate {
 			}
 			
 			let cell = tableView.dequeueReusableCell(withIdentifier: DetailJobBidderCell.id, for: indexPath) as! DetailJobBidderCell
+			cell.chatHandler = { [weak self] in
+				self?.performSegue(withIdentifier: "segueChat", sender: cell.user)
+			}
+			cell.hireHandler = { [weak self] in
+			}
 			cell.setup(withJob: viewModel.job!, index: indexPath.row)
 			return cell
 		}
@@ -222,5 +233,11 @@ extension JobDetailViewController: UITableViewDataSource, UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+		
+		if indexPath.section == 1 && currentUser.role == "client" {
+			let cell = tableView.cellForRow(at: indexPath) as! DetailJobBidderCell
+			
+			self.performSegue(withIdentifier: "segueProfile", sender: cell.user)
+		}
 	}
 }

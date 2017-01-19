@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import MBProgressHUD
 
-var gKeyboardHeight = (216 + 44)
+var gKeyboardHeight = (216 + 42)
 
 class SignupViewController: UIViewController {
 

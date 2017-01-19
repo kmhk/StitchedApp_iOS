@@ -45,31 +45,45 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email (eg. starjob@gmail.com)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aul-yU-bHe" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
-                                <rect key="frame" x="23" y="260" width="336" height="30"/>
+                                <rect key="frame" x="23" y="250" width="336" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPl-qe-S9c">
-                                <rect key="frame" x="16" y="290" width="343" height="1"/>
+                                <rect key="frame" x="16" y="280" width="343" height="1"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone Number (eg. +17183720293)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YuM-ev-PVY" customClass="ProfileTextField" customModule="Stitched_App" customModuleProvider="target">
-                                <rect key="frame" x="23" y="333" width="336" height="30"/>
+                                <rect key="frame" x="23" y="313" width="336" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tr1-4M-o0X">
-                                <rect key="frame" x="16" y="363" width="343" height="1"/>
+                                <rect key="frame" x="16" y="343" width="343" height="1"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile ID: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6p-Ep-RKg">
+                                <rect key="frame" x="16" y="72" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jMf-Mz-mDd">
+                                <rect key="frame" x="16" y="352" width="343" height="206"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="5Nk-aI-rak" id="xza-Ek-0Ss"/>
+                                </connections>
+                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-XW-vWh">
-                                <rect key="frame" x="47" y="538" width="280" height="44"/>
+                                <rect key="frame" x="47" y="566" width="280" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Save Profile">
@@ -79,13 +93,6 @@
                                     <action selector="saveProfileBtnTap:" destination="5Nk-aI-rak" eventType="touchUpInside" id="wvY-f5-RFs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile ID: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y6p-Ep-RKg">
-                                <rect key="frame" x="16" y="72" width="343" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.88235294117647056" green="0.88235294117647056" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -95,6 +102,7 @@
                         <outlet property="imgViewAvatar" destination="Sh4-k1-Vdi" id="l5z-oZ-rWq"/>
                         <outlet property="lblDescription" destination="wHq-t0-L6f" id="uFQ-5A-l13"/>
                         <outlet property="lblProfileID" destination="Y6p-Ep-RKg" id="Mvz-QQ-W4O"/>
+                        <outlet property="mapView" destination="jMf-Mz-mDd" id="z1a-Eh-Wvi"/>
                         <outlet property="txtEmail" destination="Aul-yU-bHe" id="3wd-S8-QMk"/>
                         <outlet property="txtName" destination="cCH-OF-k0Z" id="Qc4-tb-q5i"/>
                         <outlet property="txtPhoneNumber" destination="YuM-ev-PVY" id="TVA-cF-GD5"/>
@@ -107,7 +115,7 @@
         <!--Profile-->
         <scene sceneID="0Kb-0u-qKD">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Dc-lw-hk4" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Dc-lw-hk4" customClass="NavProfileViewController" customModule="Stitched_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileTabInactive" selectedImage="ProfileTabActive" id="4zA-hl-HFo"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

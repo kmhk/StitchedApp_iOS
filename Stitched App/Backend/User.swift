@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 
 enum Role: String {
@@ -26,6 +27,8 @@ struct User {
 	var ranking: String!
 	var follower: Int
 	var network: Int
+	var location: CLLocationCoordinate2D
+	var isVerified: Bool
 	
 	init () {
 		self.id = ""
@@ -37,6 +40,8 @@ struct User {
 		self.ranking = "0"
 		self.follower = 0
 		self.network = 0
+		self.location = CLLocationCoordinate2DMake(0, 0)
+		self.isVerified = false
 	}
 	
 	mutating func restoreUser() {
@@ -50,6 +55,9 @@ struct User {
 			self.ranking = userData["ranking"]
 			self.follower = Int(userData["follower"]!)!
 			self.network = Int(userData["network"]!)!
+			self.location.latitude = Double(userData["latitude"]!)!
+			self.location.longitude = Double(userData["longitude"]!)!
+			self.isVerified = Bool(userData["verified"]!)!
 		}
 	}
 	
@@ -63,8 +71,11 @@ struct User {
 		userData.updateValue(self.phoneNumber ?? "", forKey: "phoneNumber")
 		userData.updateValue(self.role ?? "", forKey: "role")
 		userData.updateValue(self.ranking ?? "", forKey: "ranking")
-		userData.updateValue("\(self.follower)", forKey: "follower")
-		userData.updateValue("\(self.network)", forKey: "network")
+		userData.updateValue(String(self.follower), forKey: "follower")
+		userData.updateValue(String(self.network), forKey: "network")
+		userData.updateValue(String(format: "%f", self.location.latitude), forKey: "latitude")
+		userData.updateValue(String(format: "%f", self.location.longitude), forKey: "longitude")
+		userData.updateValue(String(self.isVerified), forKey: "verified")
 		
 		UserDefaults.standard.setValue(userData, forKey: "user_data")
 		UserDefaults.standard.synchronize()
@@ -74,6 +85,8 @@ struct User {
 		var mySelf = User()
 		
 		Reference.FBRef.allUsers.child(userID).observeSingleEvent(of: .value, with: { (snapshot) in
+			guard (snapshot.value as AnyObject).classForCoder != NSNull.classForCoder() else { return }
+			
 			let userData = snapshot.value as! [String: Any]!
 			
 			mySelf.id = userID
@@ -86,6 +99,14 @@ struct User {
 			mySelf.ranking = (userData?["ranking"] != nil ? userData?["ranking"] as! String! : "0")
 			mySelf.follower = (userData?["follower"] != nil ? Int(userData?["follower"] as! String!)! : 0)
 			mySelf.network = (userData?["network"] != nil ? Int(userData?["network"] as! String!)! : 0)
+			mySelf.isVerified = (userData?["verified"] != nil ? Bool(userData?["verified"] as! String!)! : false)
+			mySelf.location = CLLocationCoordinate2DMake(0, 0)
+			if userData?["location"] != nil {
+				let str = userData?["location"] as! String!
+				var keys = str?.components(separatedBy: ",")
+				mySelf.location.latitude = Double((keys?[0])!)!
+				mySelf.location.longitude = Double((keys?[1])!)!
+			}
 			
 			complete(mySelf)
 		})

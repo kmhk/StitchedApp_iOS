@@ -8,17 +8,26 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+	
+	var locationManager = CLLocationManager()
+	var currentLocation: CLLocation?
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
 		FIRApp.configure()
+		
+		// for location
+		locationManager.delegate = self
+		locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		locationManager.requestAlwaysAuthorization()
+		locationManager.startUpdatingLocation()
 		
 		return true
 	}
@@ -48,3 +57,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: CLLocationManagerDelegate {
+	public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		currentLocation = locations.last
+		
+		guard currentUser.id != "" else  { return }
+		
+		let loc = String(format:"%f", (currentLocation?.coordinate.latitude)!) + "," + String(format:"%f", (currentLocation?.coordinate.longitude)!)
+		let record = ["location": loc]
+		currentUser.location = (currentLocation?.coordinate)!
+		Reference.FBRef.allUsers.child(currentUser.id).updateChildValues(record)
+	}
+}

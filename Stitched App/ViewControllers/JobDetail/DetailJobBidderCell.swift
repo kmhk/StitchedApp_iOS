@@ -19,6 +19,9 @@ class DetailJobBidderCell: UITableViewCell {
 	@IBOutlet weak var btnHire: UIButton!
 	@IBOutlet weak var btnChat: UIButton!
 	
+	var chatHandler: (() -> ())?
+	var hireHandler: (() -> ())?
+	
 	var user: User?
 	
     override func awakeFromNib() {
@@ -33,10 +36,20 @@ class DetailJobBidderCell: UITableViewCell {
     }
 
 	@IBAction func btnHireTap(_ sender: Any) {
+		guard hireHandler != nil else {
+			return
+		}
+		
+		hireHandler?()
 	}
 	
 	
 	@IBAction func btnChatTap(_ sender: Any) {
+		guard chatHandler != nil else {
+			return
+		}
+		
+		chatHandler?()
 	}
 	
 	

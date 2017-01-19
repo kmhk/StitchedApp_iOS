@@ -350,11 +350,29 @@
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
                         <outlet property="tableJobDetail" destination="gFR-2l-4ec" id="RM5-Vc-Og9"/>
+                        <segue destination="dzO-2V-XsU" kind="show" identifier="segueProfile" id="CYW-Jr-w40"/>
+                        <segue destination="tHu-mH-9FR" kind="show" identifier="segueChat" id="6QY-Pa-UeM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-A5-Nkn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5.5999999999999996" y="117.84107946026987"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="a0S-jk-5h1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="dzO-2V-XsU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XYi-tl-ufW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="-68"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="Gp6-Z5-dcp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="tHu-mH-9FR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NM9-bA-B7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="227"/>
         </scene>
     </scenes>
     <resources>

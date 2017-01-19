@@ -140,9 +140,14 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="verifiedIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VFN-NH-jmX">
+                                            <rect key="frame" x="308" y="164" width="30" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
+                                        <outlet property="imgVerified" destination="VFN-NH-jmX" id="6Ah-Ay-hJa"/>
                                         <outlet property="imgViewAvatar" destination="Fe7-1X-xKT" id="92w-Cr-iZ9"/>
                                         <outlet property="imgViewRanking" destination="zIL-ta-bE8" id="KyF-qK-Qzj"/>
                                         <outlet property="lblFollower" destination="FUT-uW-CBB" id="lpa-rH-SRN"/>
@@ -202,5 +207,6 @@
         <image name="HomeTabInactive" width="25" height="24"/>
         <image name="avatarIcon" width="512" height="512"/>
         <image name="job" width="128" height="128"/>
+        <image name="verifiedIcon" width="209" height="300"/>
     </resources>
 </document>
