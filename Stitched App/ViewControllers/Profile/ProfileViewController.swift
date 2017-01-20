@@ -250,6 +250,15 @@ class ProfileViewController: UIViewController {
 		txtEmail.text = user?.email
 		txtPhoneNumber.text = user?.phoneNumber
 		
+		if user?.id != currentUser.id {
+			if user?.location.latitude == currentUser.location.latitude &&
+				user?.location.longitude == currentUser.location.longitude {
+				let alert = UIAlertController(title: "", message: "You have reached to him", preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+				self.present(alert, animated: true, completion: nil)
+			}
+		}
+		
 		centerMapOnLocation(location: currentUser.location)
 	}
 }
