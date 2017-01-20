@@ -192,6 +192,7 @@ extension JobDetailViewController: UITableViewDataSource, UITableViewDelegate {
 				self?.performSegue(withIdentifier: "segueChat", sender: cell.user)
 			}
 			cell.hireHandler = { [weak self] in
+				// need to do something
 			}
 			cell.setup(withJob: viewModel.job!, index: indexPath.row)
 			return cell
