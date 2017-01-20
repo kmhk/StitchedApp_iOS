@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -144,9 +145,22 @@
                                             <rect key="frame" x="308" y="164" width="30" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lq6-oO-bFC">
+                                            <rect key="frame" x="8" y="175" width="75" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <color key="backgroundColor" red="0.51828367150277244" green="0.49850710680167171" blue="0.65208597715736039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
+                                            <state key="normal" title="Direct Hire">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onDirectHire:" destination="1sV-Jp-jdz" eventType="touchUpInside" id="YZU-QU-ITo"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
+                                        <outlet property="btnDirectHire" destination="Lq6-oO-bFC" id="7so-fE-T9x"/>
                                         <outlet property="imgVerified" destination="VFN-NH-jmX" id="6Ah-Ay-hJa"/>
                                         <outlet property="imgViewAvatar" destination="Fe7-1X-xKT" id="92w-Cr-iZ9"/>
                                         <outlet property="imgViewRanking" destination="zIL-ta-bE8" id="KyF-qK-Qzj"/>
@@ -167,6 +181,7 @@
                     <connections>
                         <outlet property="collectionView" destination="bw3-LT-Txo" id="Udh-2L-enO"/>
                         <segue destination="vzU-M9-uPw" kind="show" identifier="segueDetail" id="DXw-cd-Gaf"/>
+                        <segue destination="H8r-kT-Sco" kind="show" identifier="segueDirectHire" id="voB-y2-nIr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hO-37-3yr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -179,7 +194,133 @@
                 <viewControllerPlaceholder storyboardName="JobDetail" id="vzU-M9-uPw" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8E-6h-npn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1434" y="-209"/>
+            <point key="canvasLocation" x="1642" y="-589"/>
+        </scene>
+        <!--Direct Hire View Controller-->
+        <scene sceneID="NZ4-Ae-QAa">
+            <objects>
+                <viewController id="H8r-kT-Sco" customClass="DirectHireViewController" customModule="Stitched_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qUC-Nl-PoX"/>
+                        <viewControllerLayoutGuide type="bottom" id="fbv-Xy-FY3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iaj-HF-fAu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ADi-xG-maq">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DirectHireCategoryCell" rowHeight="54" id="Aoe-4T-1x6" customClass="DirectHireCategoryCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aoe-4T-1x6" id="aW2-Kq-004">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailJobBidderCell" rowHeight="85" id="mvM-L8-4Uv" customClass="DetailJobBidderCell" customModule="Stitched_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="82" width="375" height="85"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mvM-L8-4Uv" id="5VU-W1-eTn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Yhn-wN-UNA">
+                                                    <rect key="frame" x="14" y="17" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="3Dp-yw-b75"/>
+                                                        <constraint firstAttribute="height" constant="48" id="a8a-8o-rDv"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P9f-9q-Ztw">
+                                                    <rect key="frame" x="70" y="17" width="200" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="15" id="JhJ-q6-jJv"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proposal String Proposal String Proposal String" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PpU-W4-1Rj">
+                                                    <rect key="frame" x="80" y="36" width="190" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ez-0K-adb">
+                                                    <rect key="frame" x="325" y="17" width="44" height="59"/>
+                                                    <color key="backgroundColor" red="0.32577999489999998" green="0.61084525030000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="h1x-02-KB4"/>
+                                                        <constraint firstAttribute="width" constant="44" id="hGA-FC-WSe"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Hire!">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="btnHireTap:" destination="mvM-L8-4Uv" eventType="touchUpInside" id="uPC-sV-f0u"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfb-8x-z7I">
+                                                    <rect key="frame" x="273" y="24" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="67P-3s-mIE"/>
+                                                        <constraint firstAttribute="height" constant="44" id="fkj-w0-3yY"/>
+                                                    </constraints>
+                                                    <state key="normal" backgroundImage="chatIcon"/>
+                                                    <connections>
+                                                        <action selector="btnChatTap:" destination="mvM-L8-4Uv" eventType="touchUpInside" id="hym-Al-erE"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Yhn-wN-UNA" firstAttribute="top" secondItem="5VU-W1-eTn" secondAttribute="topMargin" constant="9" id="1UW-iH-eWb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="PpU-W4-1Rj" secondAttribute="bottom" constant="-3" id="5ch-pa-VeV"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4ez-0K-adb" secondAttribute="trailing" constant="-2" id="6Eg-S6-RWD"/>
+                                                <constraint firstItem="Rfb-8x-z7I" firstAttribute="top" secondItem="5VU-W1-eTn" secondAttribute="topMargin" constant="16" id="8a8-fW-IOO"/>
+                                                <constraint firstItem="4ez-0K-adb" firstAttribute="top" secondItem="5VU-W1-eTn" secondAttribute="topMargin" constant="9" id="AGB-mT-Wfq"/>
+                                                <constraint firstItem="P9f-9q-Ztw" firstAttribute="top" secondItem="5VU-W1-eTn" secondAttribute="topMargin" constant="9" id="ED3-g7-ObN"/>
+                                                <constraint firstItem="P9f-9q-Ztw" firstAttribute="leading" secondItem="5VU-W1-eTn" secondAttribute="leadingMargin" constant="62" id="FVB-h1-GMc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Rfb-8x-z7I" secondAttribute="trailing" constant="50" id="Fcu-96-cnr"/>
+                                                <constraint firstItem="Yhn-wN-UNA" firstAttribute="leading" secondItem="5VU-W1-eTn" secondAttribute="leadingMargin" constant="6" id="QKB-zc-VB2"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="PpU-W4-1Rj" secondAttribute="trailing" constant="97" id="UfY-gC-XsL"/>
+                                                <constraint firstItem="PpU-W4-1Rj" firstAttribute="leading" secondItem="5VU-W1-eTn" secondAttribute="leadingMargin" constant="72" id="lVx-m3-nqa"/>
+                                                <constraint firstItem="PpU-W4-1Rj" firstAttribute="top" secondItem="5VU-W1-eTn" secondAttribute="topMargin" constant="28" id="oT2-uc-J4R"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="P9f-9q-Ztw" secondAttribute="trailing" constant="97" id="wzt-Nc-YcC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94815708200000004" green="1" blue="0.98127117760000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="btnChat" destination="Rfb-8x-z7I" id="Wv5-5L-HT2"/>
+                                            <outlet property="btnHire" destination="4ez-0K-adb" id="DUN-iT-rZI"/>
+                                            <outlet property="imgAvatar" destination="Yhn-wN-UNA" id="iPN-uF-bzD"/>
+                                            <outlet property="lblName" destination="P9f-9q-Ztw" id="iJH-e3-WdS"/>
+                                            <outlet property="lblProposal" destination="PpU-W4-1Rj" id="Pfn-Y2-RTj"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="H8r-kT-Sco" id="bs0-Zh-7PN"/>
+                                    <outlet property="delegate" destination="H8r-kT-Sco" id="a9f-kF-N8o"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="ADi-xG-maq" id="mg1-Vm-Kh4"/>
+                        <segue destination="sj0-3D-U16" kind="show" identifier="segueProfile" id="tZL-N9-0eN"/>
+                        <segue destination="43y-Hc-NRc" kind="show" identifier="segueChat" id="GXs-bH-p4r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYZ-zQ-9BU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1784.8" y="-208.24587706146929"/>
         </scene>
         <!--Home-->
         <scene sceneID="fa5-yb-7NC">
@@ -201,11 +342,28 @@
             </objects>
             <point key="canvasLocation" x="-98.400000000000006" y="-208.24587706146929"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="HJI-Hf-0cp">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="sj0-3D-U16" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OUX-x5-UYs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2610" y="-372"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="flD-KG-W2N">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="43y-Hc-NRc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGz-Mb-8vu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2609" y="-77"/>
+        </scene>
     </scenes>
     <resources>
         <image name="HomeTabActive" width="25" height="24"/>
         <image name="HomeTabInactive" width="25" height="24"/>
         <image name="avatarIcon" width="512" height="512"/>
+        <image name="chatIcon" width="256" height="256"/>
         <image name="job" width="128" height="128"/>
         <image name="verifiedIcon" width="209" height="300"/>
     </resources>

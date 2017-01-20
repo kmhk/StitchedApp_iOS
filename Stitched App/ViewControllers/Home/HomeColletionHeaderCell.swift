@@ -20,6 +20,9 @@ class HomeColletionHeaderCell: UICollectionReusableView {
 	@IBOutlet weak var lblNetwork: UILabel!
 	
 	@IBOutlet weak var imgVerified: UIImageView!
+	@IBOutlet weak var btnDirectHire: UIButton!
+	
+	var directHireHandler: (() -> ())?
 	
 	override func layoutSubviews() {
 		imgViewAvatar.layer.cornerRadius = imgViewAvatar.frame.size.width / 2
@@ -39,5 +42,17 @@ class HomeColletionHeaderCell: UICollectionReusableView {
 		lblNetwork.text = "\(currentUser.network)"
 		
 		imgVerified.isHidden = !currentUser.isVerified
+		
+		if currentUser.role == "client" {
+			btnDirectHire.isHidden = false
+		} else {
+			btnDirectHire.isHidden = true
+		}
+	}
+	
+	@IBAction func onDirectHire(_ sender: Any) {
+		guard directHireHandler != nil else {return}
+		
+		directHireHandler?()
 	}
 }

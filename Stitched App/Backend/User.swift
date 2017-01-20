@@ -81,6 +81,26 @@ struct User {
 		UserDefaults.standard.synchronize()
 	}
 	
+	mutating func createUser(with userData: [String: Any]!) {
+		email = userData?["email"] as! String!
+		name = userData?["name"] as! String!
+		avatar = userData?["avatar_image"] as! String!
+		phoneNumber = userData?["phone"] as! String!
+		role = userData?["role"] as! String!
+		
+		ranking = (userData?["ranking"] != nil ? userData?["ranking"] as! String! : "0")
+		follower = (userData?["follower"] != nil ? Int(userData?["follower"] as! String!)! : 0)
+		network = (userData?["network"] != nil ? Int(userData?["network"] as! String!)! : 0)
+		isVerified = (userData?["verified"] != nil ? Bool(userData?["verified"] as! String!)! : false)
+		location = CLLocationCoordinate2DMake(0, 0)
+		if userData?["location"] != nil {
+			let str = userData?["location"] as! String!
+			var keys = str?.components(separatedBy: ",")
+			location.latitude = Double((keys?[0])!)!
+			location.longitude = Double((keys?[1])!)!
+		}
+	}
+	
 	static func getUser(fromID userID: String!, complete: @escaping (_ user: User?) -> Swift.Void) {
 		var mySelf = User()
 		
@@ -90,23 +110,7 @@ struct User {
 			let userData = snapshot.value as! [String: Any]!
 			
 			mySelf.id = userID
-			mySelf.email = userData?["email"] as! String!
-			mySelf.name = userData?["name"] as! String!
-			mySelf.avatar = userData?["avatar_image"] as! String!
-			mySelf.phoneNumber = userData?["phone"] as! String!
-			mySelf.role = userData?["role"] as! String!
-			
-			mySelf.ranking = (userData?["ranking"] != nil ? userData?["ranking"] as! String! : "0")
-			mySelf.follower = (userData?["follower"] != nil ? Int(userData?["follower"] as! String!)! : 0)
-			mySelf.network = (userData?["network"] != nil ? Int(userData?["network"] as! String!)! : 0)
-			mySelf.isVerified = (userData?["verified"] != nil ? Bool(userData?["verified"] as! String!)! : false)
-			mySelf.location = CLLocationCoordinate2DMake(0, 0)
-			if userData?["location"] != nil {
-				let str = userData?["location"] as! String!
-				var keys = str?.components(separatedBy: ",")
-				mySelf.location.latitude = Double((keys?[0])!)!
-				mySelf.location.longitude = Double((keys?[1])!)!
-			}
+			mySelf.createUser(with: userData!)
 			
 			complete(mySelf)
 		})

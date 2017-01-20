@@ -60,6 +60,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 			                                                         withReuseIdentifier: HomeColletionHeaderCell.id,
 			                                                         for: indexPath) as! HomeColletionHeaderCell
 			header.setup(with: viewModel)
+			header.directHireHandler = { [weak self] in
+				self?.performSegue(withIdentifier: "segueDirectHire", sender: nil)
+			}
 			return header
 		}
 		

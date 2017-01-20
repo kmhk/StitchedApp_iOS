@@ -43,6 +43,9 @@
 		F347328A1E30569C007EA9DE /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732891E30569C007EA9DE /* CommunityViewController.swift */; };
 		F347328C1E3057DA007EA9DE /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347328B1E3057DA007EA9DE /* CommunityViewModel.swift */; };
 		F347328E1E305BD4007EA9DE /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347328D1E305BD4007EA9DE /* CommunityTableViewCell.swift */; };
+		F34732901E319341007EA9DE /* DirectHireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F347328F1E319341007EA9DE /* DirectHireViewController.swift */; };
+		F34732921E319381007EA9DE /* DirectHireCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732911E319381007EA9DE /* DirectHireCategoryCell.swift */; };
+		F34732941E31953C007EA9DE /* DirectHireViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34732931E31953C007EA9DE /* DirectHireViewModel.swift */; };
 		F3554CA11E2D843C0077A780 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA01E2D843C0077A780 /* PostViewController.swift */; };
 		F3554CA41E2D846F0077A780 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA31E2D846F0077A780 /* PostViewModel.swift */; };
 		F3554CA61E2D897F0077A780 /* PostJobTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */; };
@@ -102,6 +105,9 @@
 		F34732891E30569C007EA9DE /* CommunityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityViewController.swift; path = ViewControllers/Community/CommunityViewController.swift; sourceTree = "<group>"; };
 		F347328B1E3057DA007EA9DE /* CommunityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityViewModel.swift; path = ViewModels/CommunityViewModel.swift; sourceTree = "<group>"; };
 		F347328D1E305BD4007EA9DE /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommunityTableViewCell.swift; path = ViewControllers/Community/CommunityTableViewCell.swift; sourceTree = "<group>"; };
+		F347328F1E319341007EA9DE /* DirectHireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectHireViewController.swift; path = ViewControllers/Home/DirectHireViewController.swift; sourceTree = "<group>"; };
+		F34732911E319381007EA9DE /* DirectHireCategoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectHireCategoryCell.swift; path = ViewControllers/Home/DirectHireCategoryCell.swift; sourceTree = "<group>"; };
+		F34732931E31953C007EA9DE /* DirectHireViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectHireViewModel.swift; path = ViewModels/DirectHireViewModel.swift; sourceTree = "<group>"; };
 		F3554CA01E2D843C0077A780 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ViewControllers/Post/PostViewController.swift; sourceTree = "<group>"; };
 		F3554CA31E2D846F0077A780 /* PostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewModel.swift; path = ViewModels/PostViewModel.swift; sourceTree = "<group>"; };
 		F3554CA51E2D897F0077A780 /* PostJobTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostJobTitleCell.swift; path = ViewControllers/Post/PostJobTitleCell.swift; sourceTree = "<group>"; };
@@ -168,6 +174,8 @@
 				F30BBC471E2C1B8B000A807F /* HomeViewController.swift */,
 				F347324F1E2E9C2E007EA9DE /* HomeColletionHeaderCell.swift */,
 				F34732511E2E9C56007EA9DE /* HomeCollectionPostCell.swift */,
+				F347328F1E319341007EA9DE /* DirectHireViewController.swift */,
+				F34732911E319381007EA9DE /* DirectHireCategoryCell.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 				F347325C1E2EEFF4007EA9DE /* FeedViewModel.swift */,
 				F34732861E3037F5007EA9DE /* ChatViewModel.swift */,
 				F347328B1E3057DA007EA9DE /* CommunityViewModel.swift */,
+				F34732931E31953C007EA9DE /* DirectHireViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -502,6 +511,7 @@
 				F34732751E2FFC76007EA9DE /* JobDetailViewModel.swift in Sources */,
 				F34732521E2E9C56007EA9DE /* HomeCollectionPostCell.swift in Sources */,
 				F3A6EF1F1E2B44C100A24473 /* AppDelegate.swift in Sources */,
+				F34732941E31953C007EA9DE /* DirectHireViewModel.swift in Sources */,
 				F34732771E2FFC97007EA9DE /* FeedTableViewCell.swift in Sources */,
 				F34732501E2E9C2E007EA9DE /* HomeColletionHeaderCell.swift in Sources */,
 				F3A6EF3F1E2B6BCD00A24473 /* SignupViewController.swift in Sources */,
@@ -527,12 +537,14 @@
 				F347327F1E30318F007EA9DE /* NavProfileViewController.swift in Sources */,
 				F34732851E30362A007EA9DE /* ChatViewController.swift in Sources */,
 				F34732671E2EFE97007EA9DE /* DetailJobTitleCell.swift in Sources */,
+				F34732921E319381007EA9DE /* DirectHireCategoryCell.swift in Sources */,
 				F34732691E2EFECE007EA9DE /* DetailJobDescriptionCell.swift in Sources */,
 				F30BBC591E2C2344000A807F /* VendorTabViewController.swift in Sources */,
 				F347327D1E301901007EA9DE /* DetailJobBidderCell.swift in Sources */,
 				F34732591E2EE518007EA9DE /* FeedViewController.swift in Sources */,
 				F3554CAE1E2DA0C70077A780 /* PostJobAttachCell.swift in Sources */,
 				F3039E6E1E2CA3ED006A6BD9 /* User.swift in Sources */,
+				F34732901E319341007EA9DE /* DirectHireViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

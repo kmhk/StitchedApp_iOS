@@ -53,6 +53,24 @@ class DetailJobBidderCell: UITableViewCell {
 	}
 	
 	
+	func setup(withUser usr: User) {
+		self.user = usr
+		
+		self.lblName.text = self.user?.name
+		self.lblProposal.text = "Service Provides...."
+		
+		self.imgAvatar.layer.cornerRadius = self.imgAvatar.frame.size.width / 2
+		self.imgAvatar.layer.borderWidth = 1.0
+		self.imgAvatar.layer.borderColor = UIColor.black.cgColor
+		self.imgAvatar.clipsToBounds = true
+		
+		var req = Request(url: URL(string: (self.user?.avatar)!)!)
+		req.memoryCacheOptions.readAllowed = false
+		req.memoryCacheOptions.writeAllowed = false
+		Nuke.loadImage(with: req, into: self.imgAvatar)
+	}
+	
+	
 	func setup(withJob job: PostedJob, index: Int) {
 		guard (job.bids?.count)! > index else {
 			return
